@@ -1,0 +1,4 @@
+Summary:
+
+Design Chars, a variadic non-type template class that takes a template
+parameter list of characters and can be inserted into a stream.

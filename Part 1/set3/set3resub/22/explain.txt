@@ -1,0 +1,2 @@
+In this exercise we are asked to create a program which for an input n and k 
+We need to generate all combinations of at least size k

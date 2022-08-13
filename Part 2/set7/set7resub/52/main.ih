@@ -1,0 +1,12 @@
+#include "storage/storage.h"
+#include <iostream>
+#include <thread>
+#include <fstream>
+
+void consumer(Storage &storage, std::ofstream &out);   // Polls for available
+                                                       // lines and processes
+                                                       // them
+
+void read_write(Storage &storage, std::ofstream &out); // Reads line from queue 
+                                                       // and writes to output 
+                                                       // stream

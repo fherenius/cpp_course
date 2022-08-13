@@ -1,0 +1,15 @@
+Purpose of this exercise: learn to return multiple values from a function
+
+In this exercise we're designing a combine function defining two parameters: 
+the number of command-line arguments, and the array of command line arguments.
+
+The function returns, in a struct ReturnValues (declared in main.ih):
+
+    - a bool ok, which is true if the requested argument number exists and 
+    false otherwise;
+    - a size_t nr, holding the number of the requested argument;
+    - a string value, containing the requested argument if the requested 
+    argument exists and an empty string otherwise. 
+
+In main.cc boundCall and structCall are called which both use 
+combine. They both display the requested arg if it is valid.

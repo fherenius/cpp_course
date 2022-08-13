@@ -1,0 +1,11 @@
+FIX: explained use of a string a buffer and made explicit that underflow 
+	 is virtual by using the override keyword
+
+Purpose of this exercise: Learn to construct your own streambuf class.
+Construct and implement the class RandBuffer. The class offers a constructor, 
+expecting resp. int min, int max, and size_t seed min is the smallest random
+value, max is the largest random value, seed is the value that is used to 
+seed the random number generator, and min must be smaller than max.
+
+As RandBuffer is used for extraction only only one member function must be 
+defined: underflow.

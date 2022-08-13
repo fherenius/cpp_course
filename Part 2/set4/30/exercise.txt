@@ -1,0 +1,4 @@
+Construct a class BiStream offering the same facilities as ostream, 
+but inserting its information into two files, whose ostream-objects are passed
+to this class's constructor. So, the following should be possible:
+

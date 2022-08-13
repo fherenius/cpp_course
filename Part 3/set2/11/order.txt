@@ -1,0 +1,16 @@
+explanation.txt
+main.cc
+countholder/countholder.h
+countholder/data.cc
+countholder/count.cc
+countholder/actual.cc
+counter/counter.h
+counter/counter.ih 
+counter/counter.f
+counter/copyconstr.f
+counter/copyassignment.f
+counter/counterptr.f
+counter/get1.f
+counter/get2.f
+counter/moveassignment.f
+counter/moveconstr.f

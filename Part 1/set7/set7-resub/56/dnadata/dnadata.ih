@@ -1,0 +1,14 @@
+#include "dnadata.h"
+
+#include <string>
+#include <fstream>
+#include <iosfwd>
+
+#include <iostream>
+
+
+using namespace std;
+
+
+
+

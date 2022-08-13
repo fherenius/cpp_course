@@ -1,0 +1,5 @@
+Summary:
+
+Adapt the solution to the previous exercise so that a non-default State
+constructor is called that matches the arguments of the coroutine.
+

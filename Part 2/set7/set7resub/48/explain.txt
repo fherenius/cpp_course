@@ -1,0 +1,4 @@
+Purpose of this exercise: learn to apply basic multi-threading
+
+Use the sieve of Eratosthenes to calculate if a number is prime, 
+but do it in a multithreaded way!

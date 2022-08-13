@@ -1,0 +1,9 @@
+Purpose of this exercise: learn to use escalation.
+In the exercises about overloading we encountered the enum class Msg. This 
+enum is used in a class Handler, where it is only available to the members of 
+Handler. It is also used in a class Processor, where it is also only available 
+to the members of the that class.
+
+The classes Handler and Processor can be very simple. Submit the class 
+interfaces of these classes as well as any other code you wrote to construct 
+the classes' interfaces

@@ -1,0 +1,3 @@
+%%
+[a-zA-Z][a-zA-Z]* return 1; // Match word
+.|\n                      ; // Do nothing for undefined input

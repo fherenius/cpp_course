@@ -1,0 +1,13 @@
+The goal of this exercise was to learn how to deal with file clobbering
+and developing your own library. Furthermore, it was to show how 
+destructors can also be used for administrative tasks.
+
+The object files were created using g++11 -std=c++20 -Wall -Werror -c -o 
+filename.o filename.cc for each of the files.
+
+Then using `ar r libfpjutility.a *.o` inside the Lock folder, we create
+the library. Using `ranlib libfpjutility.a` we create an index for the 
+archive.
+
+The library is then linked when compiling main.cc using:
+`g++-11 -std=c++20 -Wall -Werror main.cc -L./ -lfpjutility

@@ -1,0 +1,4 @@
+This program implements quicksort for strings
+the function quicksort(string *arr, size_t left, size_t right)
+gets an array of strings ouput and returns the sorted array. 
+In main an example is given which sorts the environment variables

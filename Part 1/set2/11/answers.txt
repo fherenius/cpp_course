@@ -1,0 +1,54 @@
+1) Consider the folllowing statement and describe in your own 
+words how the compiler interprets this statement;
+    if (first == test1) if (second == test2) value = 5; else value = 6;
+
+The compiler interprets it as an if-else statement,
+nested inside an if-statement. This is because the statement
+following else belongs to the nearest if, when read backwards
+from the else.
+
+2) rewrite this statement using the correct layout
+
+if (first == test1)
+    if (second == test2)
+        value = 5;
+    else
+        value = 6;
+
+3) instead of the interpretation as used by the compiler: 
+how would you change the statement so that the `non-default' interpretation is used?
+
+if (first == test1) 
+{
+    if (second == test2) 
+    {
+        value = 5;
+    }
+} 
+else 
+{
+    value = 6;
+}
+     
+
+4) describe in your own words how your changed statement is interpreted
+
+When reading the statement it would be interpreted as if
+the value becomes 5 if both if-statements are true, and the value
+becomes 6 if one of the if-statements is false.
+
+5) there is a flaw in the way the original statement was formulated. 
+What is the flaw and how to fix it?
+
+Instead of an if-else statement we can use a ternary operator.
+This is a lot more clear when the if-else statements are one line:
+
+value =  first == test1 && second == test2 ?  5 : 6;
+
+Rewriting the statement by splitting the if statements on different
+lines would also improve readability
+
+
+
+
+

@@ -1,0 +1,44 @@
+1) Describe in your own words what `encapsulation' and `data hiding' means, 
+and why these concepts are important when designing classes.
+
+Data hiding is the act of restricting access to member variables of a class.
+This ensures that the data within the class is protected from being changed 
+from ouside of this class.
+Encapsulation is the act of gathering data (member variables) and methods 
+interacting with this data into a single unit, e.g. classes. 
+
+These concepts are important when designing classes as encapsulation allows
+you to easily organize a program into smaller, simpler chunks. If you have 
+to change some logic within a method, having all use cases in a single place 
+reduces the the complexity of the program massively. 
+Data hiding is important as it allows you to specify what data can be seen 
+from outside of this class. Data can not be read or written on accident this 
+way.
+
+
+2) Provide a small example of a self-defined class illustrating your 
+explanation.
+
+class Rectangle
+{
+    private:
+        size_t d_height;
+        size_t d_width;
+
+    public:
+        void setHeight(size_t height);
+        void setWidth(size_t width);
+
+        size_t getHeight() const;
+        size_t getWidth()  const;
+        size_t getArea()   const;
+}
+
+
+3) The example only requires you to submit a class interface, not a class 
+implementation. Why is the implementation irrelevant?
+
+The implementation is irrelevant as the concepts of data hiding can be 
+shown by using the 'private' access specifier. Encapsulation can be shown
+by grouping all relevant methods together. The actual implementation of 
+these methods do not matter for encapsulation, just their grouping.

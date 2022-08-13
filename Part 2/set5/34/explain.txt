@@ -1,0 +1,20 @@
+Purpose of this exercise: Learn to simplify a class using containers. 
+ In this exercise we simplify the organization of Strings' data a bit by 
+ considering the original class Strings, defining std::string *d_str, so a 
+ pointer to an array of strings, rather than a pointer to pointers to strings. 
+ Change the simplified class so that copy- and move-constructors and assignment 
+ operators as well as a destructor are available without us having to implement 
+ or declare them. Of course, if this implies that other (private) members are 
+ also not required anymore then those members should also be removed 
+ from the class.
+
+Your class should support these members:
+
+    - size, returning the currently stored number of strings;
+    - capacity, returning the current storage capacity;
+    - resize, changing the object's storage size;
+    - reserve, changing the storage capacity;
+    - at, returning the indicated string verifying that the index 
+	argument is within range, and throwing an std::out_of_range exception if not.
+    - operator+=, adding a std::string to the Strings object;
+    - operator[], returning the indicated std::string; 

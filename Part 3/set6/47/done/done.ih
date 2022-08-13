@@ -1,0 +1,7 @@
+#include "done.h"
+
+#include <iostream>
+
+using namespace std;
+
+Done coDone();

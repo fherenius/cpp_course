@@ -1,0 +1,44 @@
+Basic exercise
+Purpose of this exercise: Learn to store an (apriori unknown) number of 
+data elements in a class.
+
+In many cases you don't know in advance how many data elements you'll encounter.
+ In those cases pointers are a great boon, as they allow you to `enlarge' 
+ the required memory when that becomes necessary.
+
+Consider a program that determines occurrences of characters and counts their 
+frequencies. The program should not only be able to count characters in text 
+files, but also in other types of files, be they .pdf files, spreadsheet files, 
+object files or executable (binary) programs.
+
+Your program should use a class CharCount that does all the hard work. 
+It should offer a member count, that expects a std::istream 
+(at this point it can only be std::cin) and returns the number of characters 
+in the file.
+
+Internally, the class should define a struct CharInfo having a field ptr 
+pointing to struct Char objects and a field nCharObj storing how many Char 
+objects were stored. The struct Char simply stores the char (field ch) and its 
+frequency of occurrence (field count). CharCount also offers a member info that
+ returns a reference to the immutable CharInfo object. Make sure that ptr points
+  to as many Char elements as there were different characters. So do not simply 
+  define a pointer to 256 Char elements.
+
+At the program's base directory level a free function showChar is available. 
+It receives a character, and displays char followed by the character: the space 
+character is displayed as ' '; the newline character, is displayed as '\n'; the 
+tab character, is displayed as '\t'. Otherwise, printable characters are 
+displayed as received (also between quotes), and other characters are displayed 
+as the character's ascii value as a decimal unsigned number
+ (so, a value between 0 and 255).
+
+After CharCount has processed its input, all encountered characters and their 
+frequencies are displayed in an ordered sequence: the lowest char value first,
+ the highest last. Character display is handled in main. Displayed lines should
+  look like this:
+
+
+    char '\n': 4 times
+    char 'a': 10 times
+    char 200: 3 times
+    

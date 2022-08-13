@@ -1,0 +1,16 @@
+Each of these statements/definitions may throw exceptions:
+
+Statement 1 may show usage, throwing 0 if -h was specified, and 1 if the 
+arguments violate the program's requirements;
+Statement 2 may trhow a std::string containing something like "cannot read 
+`filename'" where filename is replaced by the name of the file which could not
+be read;
+Statement 3 may throw a std::exception containing the text "unexpected 
+exception encountered".
+When usage throws 0 the program must return a 0 to the operating system, 
+otherwise a 1 must be returned.
+
+
+FIX:
+Made a function delegation the process which was first
+done in the try clause body.

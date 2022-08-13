@@ -1,0 +1,6 @@
+summary.txt
+main.ih
+traitcounter.h
+locate.f
+main.cc
+

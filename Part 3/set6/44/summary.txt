@@ -1,0 +1,5 @@
+Summary:
+
+Design a coroutine that extracts integer values from a stream and returns
+them by reference.
+

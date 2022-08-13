@@ -1,0 +1,6 @@
+Basic exercise
+Purpose: learn to select the right container for the task at hand.
+
+The same exercise as the previous one, 
+but now report each word together with the number of 
+times it was encountered in the input.

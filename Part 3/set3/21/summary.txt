@@ -1,0 +1,6 @@
+Summary:
+
+Create a class Type that locates the type of a Needle in its template
+parameters. Its location enum is set to the index if it is found
+(with idx > 0 by definition) and to 0 if it is not.
+

@@ -1,0 +1,13 @@
+Advanced exercise
+Purpose of this exercise: extend the previous program so that it uses multiple
+ clients.
+
+Extend the previous clients in such a way that an array of threads is defined. 
+The number of threads is determined from the number of file names that are 
+passed to main. Each thread should write to its own file (it is assumed that 
+all file names are different).
+
+The objects that ran as threads must have a member size returning the number 
+of lines that thread has captured. The objects' size members must be called 
+for the first until the last thread, only after all threads have finished, 
+and have joined main. 

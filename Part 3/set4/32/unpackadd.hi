@@ -1,0 +1,50 @@
+#include "tuplemod.h"
+
+    // Generic class that unpacks the tuple into the parameters.
+    // The RH tuple is unpacked and later added through TupleMod's add function
+    // The naming is a bit ambiguous..
+template <typename TupleMod, typename Tuple, typename Idx, typename ...Params>
+struct UnpackAdd
+{
+    static auto unpackAdd(TupleMod const &mod,
+                          Tuple const &tuple,
+                          Params &&...params);
+};
+
+    // Generic UnpackAdd function
+template <typename TupleMod, typename Tuple, typename Idx, typename ...Params>
+auto UnpackAdd<TupleMod, Tuple, Idx, Params...>::
+    unpackAdd(TupleMod const &mod, Tuple const &tuple, Params &&...params)
+{
+    enum { idx = Idx::value - 1 };
+
+    using LastType =                                // Get the type of the new
+                                                    // element to add
+        typename std::tuple_element<idx, Tuple>::type;
+
+    LastType tmp = std::get<idx>(tuple);            // Get the value so that
+                                                    // it can be moved later
+    return
+        UnpackAdd<TupleMod, Tuple, Nr<idx>, LastType, Params...>::
+        unpackAdd(mod, tuple, std::move(tmp),
+                  std::forward<Params>(params)...);
+}
+
+
+    // Specialization that calls the add function on the TupleMod
+    // and returns the newly created tuple.
+template <typename TupleMod, typename Tuple, typename ...Params>
+struct UnpackAdd<TupleMod, Tuple, Nr<0>, Params...>
+{
+    static auto unpackAdd(TupleMod const &mod,
+                          Tuple const &tuple,
+                          Params &&...params);
+};
+
+    // Specialized UnpackAdd function
+template <typename TupleMod, typename Tuple, typename ...Params>
+auto UnpackAdd<TupleMod, Tuple, Nr<0>, Params...>::
+    unpackAdd(TupleMod const &mod, Tuple const &tuple, Params &&...params)
+{
+    return mod.add(std::forward<Params>(params)...);
+}

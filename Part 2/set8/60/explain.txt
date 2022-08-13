@@ -1,0 +1,11 @@
+The purpose of this exercise is to learn to use Semaphores to synchronize
+multiple threads.
+
+Currently the implementation is not working, it seems I'm failing to use the 
+static wrapper function properly. The adresses of my Semaphores in the worker
+object suddenly change location after construction and being passed to a 
+detached thread. This causes multiple threads to wait for eachother because
+the semaphores aren't being updated properly. 
+
+Hopefully the feedback will give a hint to where I'm going wrong, I must be
+missing some basic concept.

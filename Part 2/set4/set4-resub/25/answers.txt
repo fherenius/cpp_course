@@ -1,0 +1,19 @@
+FIX: included header guards and gave
+the virtual functions of both classes seperate files to ensure they are 
+addressable using the vtable of the respective classes.
+And we made virtual functions private.
+
+1) How many Vtables and how many v_pointers are defined by the program?
+
+accoring to Annotations 14:10:
+
+The overhead of polymorphism in terms of memeory consumption is:
+
+one vpointer data member per object pointing to:
+one vtable per class
+
+We have 2 objects potentially using virtual members functions: 1 Derived object
+and 1 Base object. Therefore we have 2 v_pointers. the class Derived
+overrides vHello from Base. Consequently the Derived and Base class
+both have its own Vtables, so two Vtables are defined
+

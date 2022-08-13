@@ -1,0 +1,6 @@
+Summary:
+
+Implement (forward) iterators into the coroutine of exercise 41.
+The handler than needs to be usable in a RBFL.
+
+

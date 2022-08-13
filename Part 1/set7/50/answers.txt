@@ -1,0 +1,28 @@
+The purpose of this exercise is to learn to open and read files, by explaining
+the different behavior of std::ofstream and std::fstream.
+
+The difference in outcome is due to the difference in default modes called with
+the constructors of std::ofstream and std::fstream.
+
+Both std::ofstream and std::fstream use std::basic_filebuf::open to associate
+the stream with a file. Depending on the modes passed to
+std::basic_filebuf::open, it deals with non-existent files differently. The
+documentation for this can be found at
+https://en.cppreference.com/w/cpp/io/basic_filebuf/open
+
+std::ofstream's constructor, when only a filename is given, passes the mode
+ios_base::out. From the documentation, we see this openmode creates a new file
+when it does not exist and destroys the contents if it does exist.
+
+std::fstream's constructor, when only a filename is given, passes the modes
+ios_base::out | ios_base::in. From the documentation this openmade gives an
+error (close() called an null pointer returned) if a file does not exist, and
+reads from start if the file does exist.
+
+To fix the issue, while still preserving the input/output capabilities of
+std::fstream, the following modes could be passed upon initialisation:
+ios_base::out|ios_base::in|ios_base::trunc. This will create a new file if it
+doesn't exist, and destroy the contents if it does exist.
+
+Alternatively, ios:base::out can be passed but then std::ofstream might aswell
+be used.

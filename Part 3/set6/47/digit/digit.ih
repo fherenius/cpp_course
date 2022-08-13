@@ -1,0 +1,7 @@
+#include "digit.h"
+
+#include <iostream>
+
+using namespace std;
+
+Digit coDigit();

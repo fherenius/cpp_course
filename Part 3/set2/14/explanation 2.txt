@@ -1,0 +1,7 @@
+The purpose of this exercise is to implement our own iterator in template class.
+
+We used the method as described in the book, where we have an iterator class
+that is used in the Storage class. The implementation has been adapted to
+work with gcc-12 since inheriting from std::iterator has been deprecated.
+
+Unfortunately, the reverse iterator does not work yet.

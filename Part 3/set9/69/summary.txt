@@ -1,0 +1,4 @@
+Summary:
+    Create a parser and scanner that process std-time specifications.
+    A separator must be providable, if non is provided whitespaces are
+    used instead.

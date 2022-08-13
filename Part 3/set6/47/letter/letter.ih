@@ -1,0 +1,7 @@
+#include "letter.h"
+
+#include <iostream>
+
+using namespace std;
+
+Letter coLetter();

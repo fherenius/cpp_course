@@ -1,0 +1,33 @@
+JB: ?
+In this exercise, the goal is to describe how a coroutine accesses it's values. 
+And thus, how it communicates with users.
+
+- First, we'll describe how handle.value() retrieves the value from the
+  coroutine.
+
+The Handler class will internally have a State class that holds the current,
+which is being assigned at co_await. This State object will be stored in a
+std::coroutine_handler, using the .promise() member-function, a reference to
+the state object can be obtained. From here, we can use a member function 
+belonging to State retrieve the value, this is then returned by the
+handler.value() function.
+JB: How does the value get into the State?
+
+- The value() member could be implemented as such. 
+
+d_handle holds the State object in the Handler class, it's stored inside of
+         a std::coroutine_handler.
+
+We assume State has a value() member function returning a size_t of the current
+value. This value is assigned at co_await.
+
+We also assume the existence of the resume() function to resume the coroutine.
+
+size_t Handler::value()
+{
+  d_handle.resume(); // Resume the coroutine
+  return d_handle.promise().value(); // Call the value() function of the
+                                     // State member class
+}
+
+JB: One more function involved.

@@ -1,0 +1,73 @@
+Complete the table below, by entering the empty fields of the `pointers' and
+`semantics' columns. The index-expressions should be rewritten without using
+the index-operator []. In all cases you have to use pointer notations
+
+----------------------------------------------------------------------------
+  definition:         rewrite: 
+----------------------------------------------------------------------------
+  int x[8];           x[4]            
+
+pointer notation:  *(x + 4)
+       semantics:  x + 4 points to the location of the 4th int beyond x.
+                   That element is reached using the dereference operator (*)
+
+----------------------------------------------------------------------------
+  int x[8];           x[2] = x[3];
+
+pointer notation:     *(x + 2) = *(x + 3)       
+       semantics:     x + 2 and x + 3 points to the location of the 2nd and 3rd
+                      int beyond x respectively. the elements are both
+                      dereferenced so that the content of 3rd int beyond x
+                      is assigned to the second int beyond x
+----------------------------------------------------------------------------
+  char *argv[8];      cout << argv[2];
+
+pointer notation:     cout << *(argv + 2);
+       semantics:     argv + 2 points to the location of the 2nd char *
+                      beyond x, it is dereferenced using '*" and sent to
+                      the output stream
+----------------------------------------------------------------------------
+  int x[8];           &x[10] - &x[3];
+ 
+pointer notation:     &*(x + 10) - &*(x + 3)
+       semantics:     x + 10 and x + 3 point to the location of the 10th and 
+                      3rd int beyond x respectively. it is dereferenced using
+                      '*' to reach the value of the element but then the 
+                      location is again referenced using the '&' operator.
+                      Then the locations are subtracted from eachother to reach
+                      &*(x + 10) - &*(x +3) == (x + 10) - (x + 3) == x + 7
+                      the location of the 7th int beyond x;
+----------------------------------------------------------------------------
+  main's argv;        argv++[0];
+
+pointer notation:     *argv++    
+       semantics:     argv is incremented so that it points 1 beyond the
+                      value of argv. However argv is dereferenced before
+                      incremented, so only after the expression argv points
+                      to the next string 
+----------------------------------------------------------------------------
+  main's argv;        argv[0]++;
+
+pointer notation:     (*argv)++
+       semantics:     argv is incremented so that it points 1 beyond the value
+                      of argv. But argv is dereferenced before it is
+                      incremented. So the statement returns the first element
+                      only after the statement argv[0] will return the element
+                      one beyond the first element
+----------------------------------------------------------------------------
+  main's argv;        ++argv[0];
+
+pointer notation:     ++*argv
+       semantics:     argv points to the first character in the string. 
+                      it is then incremented so that it points to the second
+                      character in the string. It therefore returns the string
+                      from the second character.
+----------------------------------------------------------------------------
+  main's argv;        ++argv[0][2];
+
+pointer notation:     ++*(*argv + 2)
+       semantics:     first *argv + 2 is points to the character 2 elements
+                      beyond *argv it is then dereferenced using the '*'
+                      so that the value is retrieved, then the value itself is
+                      incremented
+----------------------------------------------------------------------------

@@ -1,0 +1,8 @@
+answers.txt
+main.cc
+
+object/object.h
+object/object.ih
+object/object1.cc
+object/hardExit.cc
+object/throwException.cc

@@ -1,0 +1,3 @@
+"main.cc" -> "main.o" [label = "compile"]
+"main.o" -> "main" [label = "link"]
+"libproj.a" -> "main" [label = "link"]

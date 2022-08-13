@@ -1,0 +1,44 @@
+//JB: ?
+%class-name Parser 
+%filenames Parser 
+%scanner ../scanner/Scanner.h
+
+%token TRUE FALSE INT SEPARATOR NAME COLON
+//JB: I woulnd't distinguish between boolean values true and false at the level
+//JB: of the grammar.
+
+%%
+
+lines:
+    lines dst_line
+|
+    dst_line
+;
+
+    // The COLON token is needed because it is followed by whitespaces.
+    // Whitespaces are also the SEPARATOR token when no char is provided
+    // thus the COLON token consists of more characters
+dst_line:
+    NAME COLON dst_specification '\n'
+;
+
+dst_specification:
+    FALSE
+|
+    TRUE opt_num
+|
+    INT SEPARATOR INT opt_num
+;
+
+// JB: This is kind of artificial: the SEPARATOR-INT sequence appears in two
+// JB: nonterminals. And with terminals in these long rules, it's hard to
+// JB: harvest their semantic values, because the matched text will have been
+// JB: overwritten by the time $1 or $3 is used.
+
+
+opt_num:
+    SEPARATOR INT       // Specifies minutes of shift
+|
+    // empty            // Specifies that standard time is used
+;
+

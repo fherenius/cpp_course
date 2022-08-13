@@ -1,0 +1,2 @@
+Summary:
+    Adapt a parser using a union to use polymorphic values instead.

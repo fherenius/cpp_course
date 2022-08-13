@@ -1,0 +1,10 @@
+#include "workforce.h"
+#include "../Semaphore/semaphore.h"
+#include "../Worker/worker.h"
+#include "../Administrator/administrator.h"
+
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <queue>
+#include <thread>

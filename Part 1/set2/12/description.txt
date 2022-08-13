@@ -1,0 +1,12 @@
+Basic exercise
+Purpose of this exercise: process a stream and use an appropriate for-statement.
+
+Write a program reverse showing a prompt (use a question mark 
+followed by a blank) and then reads a line of text from the 
+standard input stream. If the line is empty, or if the end of the standard 
+inut is reached (realized by providing ctrl-d the program ends. 
+Otherwise it displays to the standard output the reversed text line.
+
+The source file reverse.cc describes a program which uses getline
+to grab the current input from the cin stream and the reverse
+iterators to iterate over each line reversely.

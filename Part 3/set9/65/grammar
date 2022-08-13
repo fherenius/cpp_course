@@ -1,0 +1,155 @@
+//JB: ?
+%class-name Parser
+
+%filenames parser
+%parsefun-source parse.cc
+
+%baseclass-preinclude rulevalue.h
+%stype RuleValue
+
+%scanner ../scanner/scanner.h
+%token-path ../scanner/tokens.h
+
+%token  NUMBER IDENT
+
+%right  '~'
+%right  '=' ADDASSIGN MINASSIGN MODASSIGN MULASSIGN DIVASSIGN
+%left   '*' '/' '%' '&' '|' '^' LSHIFT RSHIFT 
+%left   '+' '-'
+%right  uMinus
+
+// JB: Err... '+' and '-' take precedence over '*' and '/'?!?
+
+// %debug
+
+%%
+
+lines:
+    lines line
+|
+    line
+;
+
+line:
+    expr '\n'
+    {
+        display($1);
+    }
+|
+    error '\n'    
+    {
+        prompt();
+    }
+|
+    '\n'
+    {
+        prompt();
+    }
+;
+
+expr:
+    NUMBER
+    {
+        $$ = value();
+    }
+|
+    IDENT
+    {
+        $$ = variable();
+    }
+|
+    '-' expr            %prec uMinus
+    {
+        $$ = negate($2);
+    }
+|
+    '~' expr
+    {
+        $$ = comp($2);
+    }
+|
+    expr '+' expr
+    {
+        $$ = add($1, $3);
+    }    
+|
+    expr '&' expr
+    {
+        $$ = andOp($1, $3);
+    }
+|
+    expr '-' expr
+    {
+        $$ = sub($1, $3);
+    }    
+|
+    expr '*' expr
+    {
+        $$ = mul($1, $3);
+    }
+|
+    expr '/' expr
+    {
+        $$ = div($1, $3);
+    }
+|
+    expr '%' expr
+    {
+        $$ = mod($1, $3);
+    }
+|
+    '(' expr ')'
+    {
+        $$ = $2;
+    }
+|
+    expr '=' expr
+    {
+        $$ = assign($1, $3);
+    }
+|
+    expr '|' expr
+    {
+        $$ = orOp($1, $3);
+    }
+|
+    expr '^' expr
+    {
+        $$ = xorOp($1, $3);
+    }
+|
+    expr ADDASSIGN expr
+    {
+        $$ = addAssign($1, $3);
+    }
+|
+    expr MINASSIGN expr
+    {
+        $$ = subAssign($1, $3);
+    }
+|
+    expr MULASSIGN expr
+    {
+        $$ = mulAssign($1, $3);
+    }
+|
+    expr DIVASSIGN expr
+    {
+        $$ = divAssign($1, $3);
+    }
+|
+    expr MODASSIGN expr
+    {
+        $$ = modAssign($1, $3);
+    }
+|
+    expr LSHIFT expr
+    {
+        $$ = lshift($1, $3);
+    }
+|
+    expr RSHIFT expr
+    {
+        $$ = rshift($1, $3);
+    }
+;

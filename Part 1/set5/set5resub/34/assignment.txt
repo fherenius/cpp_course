@@ -1,0 +1,16 @@
+Purpose of this exerise: learn to provide classes with their own data
+It's of course very easy to give a class access to argc, argv, and environ. 
+The variable char **environ is globally available and argc and argv can simply 
+be passed as arguments to class objects' constructors.
+
+
+In this exercise we concentrate on that part: make copies of available data. 
+Our starting point is the following outline of the class CopyCat:
+
+Once the constructors return its data members should contain deep copies of the
+received data. `Deep copies' means that not only they should point to their own
+arrays of pointers, but each element of those arrays must point to copies of
+the corresponding elements of their source-arrays.
+
+Submit and implement the implementation of the class's header and internal
+ header files and the implementations of the class's constructors.

@@ -1,0 +1,17 @@
+explain.txt
+
+person/person.h
+person/person.ih
+
+person/setName.cc
+person/setAddress.cc
+person/setPhone.cc
+person/setMass.cc
+
+person/name.cc
+person/address.cc
+person/phone.cc
+person/mass.cc
+
+person/insert.cc
+person/extract.cc

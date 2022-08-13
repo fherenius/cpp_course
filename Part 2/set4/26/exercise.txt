@@ -1,0 +1,25 @@
+Purpose of this exercise: learn to define classes having Vtables whose objects
+can safely be destroyed.
+Consider the classes Base and Derived from the previous exercise.
+Provide Derived with a default constructor initializing its string to hello 
+from Derived (no need to implement, but it must be declared in the class
+interface)
+
+Change the class(es) in such a way that a function 
+Base **derivedFactory(size_t size) returns a pointer to size pointers to 
+Derived objects.
+
+In main call derivedFactory followed by the returning the allocated 
+information to the common pool:
+
+
+    int main()
+    {
+        Base **bp = derivedFactory(10);
+
+        // add your code here to return all allocated memory to the 
+        // common pool.
+    }
+        
+Submit derivedFactory's implementation, the changes to Base and Derived, 
+and main's complete implementation.

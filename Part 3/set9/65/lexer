@@ -1,0 +1,27 @@
+%filenames scanner
+%interactive
+
+digits      [0-9]+
+optdigits   [0-9]*
+exp         [eE][-+]?{digits}
+
+%%
+
+\+=                                     return Parser::ADDASSIGN;
+-=                                      return Parser::MINASSIGN;
+\*=                                     return Parser::MULASSIGN;
+\/=                                     return Parser::DIVASSIGN;
+%=                                      return Parser::MODASSIGN;
+
+\<\<                                    return Parser::LSHIFT;
+\>\>                                    return Parser::RSHIFT;
+
+[ \t]+
+
+{digits}                                |
+{digits}"."{optdigits}{exp}?            |
+{optdigits}"."{digits}{exp}?            return Parser::NUMBER;
+
+[[:alpha:]_][[:alnum:]_]*               return Parser::IDENT;
+
+\n|.                                    return matched()[0];

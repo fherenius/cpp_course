@@ -1,0 +1,38 @@
+JB: 1
+Summary:
+
+Learn to modify tuples.
+
+Tuples do not support functionalities like other containers. An example of
+this is the push_back() function.
+
+Create a class TupleMod and create some extra functionalities.
+TupleMod has an add() member function that can add a paramterlist to the
+tuple given at construction time. (Not really adds but creates a new tuple).
+
+Create the operator+() function to work on two tuples.
+
+Note:
+    I had some difficulty with the design, as two support classes are created
+    to unpack the two tuples. The main problem arose from not being able
+    to return the parameter pack but having to call the function immediatly.
+
+JB: I think you pulled that off nicely though :-)
+
+    The type obtained from the tuple also turned out to be an rvalue reference.
+    This still works but moving seems unnecessary. I was unsure if it would be
+    better to extract the underlying type from the LastType or to use move.
+    Although the first should always be constexpr while the second option
+    might not be.
+    
+JB: I'm not sure I understand. If you add e.g. a tuple<string> and a
+JB: tuple<vector<int>>, both of which are rvalue references, you can move during
+JB: construction, but the resulting type should still be a
+JB: tuple<string, vector<int>>.
+JB: It looks like that is what you're doing.
+
+JB: To keep the number of similar lines of code lower, instead of overloading
+JB: constructors for rvalues references, you could catch the
+JB: rvalue-referenceness of the tuple and transfer it onto the members of the
+JB: tuple during construction of the resulting tuple. But our solution is not
+JB: *that* sophisticated.

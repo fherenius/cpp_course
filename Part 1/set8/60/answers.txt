@@ -1,0 +1,1 @@
+The purpose of this exercise is to learn about copy elision.

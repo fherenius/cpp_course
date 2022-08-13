@@ -1,0 +1,2 @@
+The purpose of this task is to implement a simple inner-product
+algorithm using multithreading and packaged tasks.

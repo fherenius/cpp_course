@@ -1,0 +1,4 @@
+In this exercise we implemented the class Person as discussed in the C++ 
+Annotations. Additionaly we defined two extra members, insert and extract
+which respectively inserts or the persons data to or from stdin or 
+stdout.

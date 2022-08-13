@@ -1,0 +1,12 @@
+assignment.txt 
+
+copycat/copycat.h
+copycat/copycat.ih
+
+copycat/copycat1.cc
+copycat/copycat2.cc
+
+copycat/print.cc
+copycat/nElements.cc
+copycat/ntbsCopy.cc
+copycat/duplicate.cc

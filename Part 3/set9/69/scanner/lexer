@@ -1,0 +1,36 @@
+
+INT             [0-9]+
+WHITESPACE      [\r\t\ ]+
+NAME            [A-Z]+
+COLON           ':'{WHITESPACE}
+
+%%
+
+"true"          return TRUE;
+"false"         return FALSE;
+
+{INT}           return INT;
+    
+    // Whitespaces are separators in case of no specified char.
+{WHITESPACE}    {   
+                    if (d_separator == 0)       // Return separator if no
+                        return SEPARATOR;       // char was provided
+                }
+{NAME}          return NAME;
+
+.               {
+                    if (matched()[0] == d_separator)
+                        return SEPARATOR;
+                    return matched()[0];
+                }
+
+{COLON}         return COLON;
+
+'\n'            return matched()[0];
+
+//JB: So the scanner decides whether and which separators are scanned.
+//JB: This makes sense, except that turning all whitespace into separators
+//JB: requires the grammar to accept separators *everywhere* it accepts
+//JB: spaces... unless the grammar is also modified by the setting.
+//JB: For this rudimentary grammar this is doable, but for larger grammars,
+//JB: it's not practical.

@@ -1,0 +1,55 @@
+Consider this program:
+
+
+#include <memory>
+
+int main()
+{
+    std::unique_ptr<char>(new char[10]);
+}
+
+1) What's wrong with this program
+
+The program defines a unique_ptr to a char but then initializes it to point to
+a char array.
+
+2) Why?
+
+The wrong version does not support the index operator, and uses the default
+delete operator instead of delete[] because it does not know it handles an array
+of objects instead of just a single object.
+
+3) How to fix it?
+
+We change the line instantiating the unique_ptr to:
+
+std::unique_ptr<char[]>(new char[10]);
+
+--------------------------------------------------------
+
+int main() 
+{ 
+    // assign dynamically allocated strings to the 10 pointers 
+    std::unique_ptr<string *>(new string *[10]); 
+}
+
+4) What's wrong with this program
+
+The program defines a unique_ptr to a string pointer but the initializes it
+to an array of string pointers
+
+5) Why?
+
+In this case the smart pointer's destructor calls delete rather than delete[],
+which is the wrong deletion operator. Also operator[] is not available.
+
+6) How to fix it?
+
+We change the line instantiating the unique_ptr to:
+
+
+std::unique_ptr<string*[]>(new string *[10]);
+
+
+
+

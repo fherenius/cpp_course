@@ -1,0 +1,2 @@
+The R"(...)" form can only be used when in the RSL there is no case of a closing bracket ")" followed by a dobule quotation mark """.
+If this is the case. We can define a delimiter that does not occur in the RSL to denote the end of the RSL.

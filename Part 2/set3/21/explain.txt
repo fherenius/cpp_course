@@ -1,0 +1,29 @@
+Basic exercise
+Purpose of this exercise: learn to handle hiding members.
+
+> For this exercise we use the class std::string as a base class, although 
+  that's bad practice.
+
+    Why is it bad practice? 
+
+In C++ code ntbs's (such as "hello") can be used to construct std::string
+objects and are in some cases (comparison, assignment) interpreted as string 
+When a class is derived from std::string, ambiguity arises on which constructor
+to use, the one of the base (std::string) or derived class.
+
+
+> Publicly derive a class String from std::string. 
+  The class std::string has several members allowing you to insert
+  information immediately at the beginning of the content of the object, 
+  but a member simply inserting text at the beginning of the object's 
+  data isn't available.
+
+> Provide String with a member String &insert(std::string const &txt) inserting 
+  txt at the beginning of the content of its base class std::string object.
+
+> In addition, all binary comparison operators must be defined for the class 
+String: ==, !=, <, <=, > and >=, which may use the available operators of 
+String's std::string base class (to avoid confusion: these operators must
+ expect String const & arguments).
+
+

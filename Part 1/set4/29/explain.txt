@@ -1,0 +1,26 @@
+Design the class Parser. It's a class using the facilities of the class Line 
+and having a Line d_line data member. It has the following pubic members:
+
+bool reset(): it fills d_line with the next input line, returning true if 
+such a line was read;
+
+Return number(double *dest) returns the value stored in the next substring
+of the just read line. Its returns type is an enum. The enum is defined by
+Parser, having the following values:
+NO_NUMBER: the substring didn't contain a number;
+NUMBER: the substring did contain a number;
+EOLN: the line didn't contain any more substrings;
+
+bool isIntegral(): returns the value of its d_integral data member
+
+std::string next(): returns d_line's next substring.
+It has two private members:
+
+Return convert(double *dest, std::string const &str), handling the conversion
+from str to a double, also taking care of failing conversions. 
+
+The member calls pureDouble returning NUMBER. If pureDouble returns true then
+ convert return NUMBER and NO_NUMBER when it returns false.
+
+bool pureDouble(double *dest, std::string const &str) uses stod to convert 
+the str's content to a double. 

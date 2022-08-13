@@ -1,0 +1,11 @@
+answers.txt
+
+numbers.h
+numbers.ih
+
+element.cc
+operatorEq.cc
+operatorIndex.cc
+operatorIndexConst.cc
+operatorInsert.cc
+size.cc

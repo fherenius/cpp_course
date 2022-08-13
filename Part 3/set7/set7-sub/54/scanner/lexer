@@ -1,0 +1,13 @@
+
+
+trail       "boat"|"hold"       // Either boat or hold trails house
+word        [^[:blank:]\n]+     // Words are all non-blanks incl new line
+
+
+%%
+
+house/{trail}           { out() << matched() << '\n'; return WORD; }
+{word}                  { out() << matched() << '\n'; return WORD; }
+
+.|\n                    // Ignore random characters
+

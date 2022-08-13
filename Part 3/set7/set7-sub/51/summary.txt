@@ -1,0 +1,4 @@
+The purpose of this exercise is to learn to use miniscanners.
+
+Multiple miniscanners are used to deal with the various comment types and
+to deal with strings. Additional data members are defined in Scanner.h

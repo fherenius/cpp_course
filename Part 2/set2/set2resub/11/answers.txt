@@ -1,0 +1,51 @@
+1. Show that exception catchers catching objects result in additional copies 
+of thrown objects, compared to exception catchers catching references to
+objects.
+
+in main.cc we initialize an object and call a function which throws an 
+object of the type object. when we receive the object by value i.e.
+
+    catch(Object obj)
+
+The output is:
+
+Constructing Object object
+Constructing Object localObject
+Copy constructor for localObject copy
+Copy constructor for localObject copy copy
+Exception throws obj: localObject copy copy
+
+when we receive the object by reference: i.e:
+
+    catch(Object &obj)
+
+Constructing Object object
+Constructing Object localObject
+Copy constructor for localObject copy
+Exception throws obj: localObject copy
+
+We see that only one copy of localObject is made.
+
+
+2. Also show that when throwing objects or references copies of the 
+(referred to) objects are thrown.
+
+in the output we see that also for receiving the object by reference
+a copy of the object is received. This is because localobject is passed by
+value to throw, therefore creating a copy.
+
+3. Also answer the question whether `throw;' results in throwing the currently
+available exception or a copy of that exception.
+
+For this we added an additional function of Object rethrow which
+calls a function which throws an exception in a try block 
+and then rethrows it in the catch block with throw; Concluding from the output
+we see that there are no additional copys made, so it throws the currently
+available exception.
+
+FIX: 
+- Implemented class members outside, and in seperate file
+- Changed first constuctors param from string to string const &
+- simplified rethrow
+
+

@@ -1,0 +1,24 @@
+The purpose of this exercise is to understand the use for the default keyword.
+
+In the table below, it is assumed that the row 'no constructor' means all
+assignment ops. are user-declared and similarly the row 'no assignment' is 
+assumed the mean all constructors are user-declared.
+
+Next to this, with 'other cons.', it is assumed the destructor is declared.
+
+-----------------------------------------------------------
+                        constructors        assignment ops.
+                     ------------------     ---------------  
+define:              default copy move        copy    move   
+-----------------------------------------------------------
+no constructor:         +     +    +           -        -                                
+default cons:           -     +    +           +        +
+copy cons (CC):         -     -    CC          +        C= 
+move cons (MC):         -     -    -           -        -
+other cons:             -     +    CC          +        C=  
+                        
+no assignment:          -     -    -           -        -
+copy assignmnt (C=):    +     +    CC          -        C=
+move assignmnt (M=):    +     +    -           -        - 
+other assignmnt:        +     +    +           +        +                     
+-------------------------------------------------------------

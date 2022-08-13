@@ -1,0 +1,13 @@
+Summary:
+
+Design a trait class expecting a template argument.
+It might be a plain type, pointer to a type, reference to a type
+or an rvalue reference to a type.
+
+The trait class should define a value which has a value for the 4 variants.
+This value is 1, 2, 3 and 4 respectively.
+
+Also show (using a template function) how you can define a const ptr to an
+int using `auto ptr = ...`. Once it is available, let it point to a plain int
+variable and show its value by dereferencing it.
+

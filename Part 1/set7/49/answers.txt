@@ -1,0 +1,20 @@
+The implementations have the following runtimes:
+
+- no if statement:
+________________________________________________________
+Executed in    1.99 secs    fish           external
+   usr time    1.77 secs    0.09 millis    1.77 secs
+   sys time    0.01 secs    1.60 millis    0.01 secs
+
+- if statement:
+________________________________________________________
+Executed in  467.00 millis    fish           external
+   usr time  234.04 millis    0.09 millis  233.95 millis
+   sys time   12.29 millis    1.44 millis   10.86 millis
+
+The difference in the implementation is due to overhead caused by the
+operator<<. With the if-statement the operator<< is not called, resulting
+in lower runtimes compared to without the if-statement.
+
+A rule of thumb would be that explicit failbit checks should be used when every
+bit of speed is important.

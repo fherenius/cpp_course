@@ -1,0 +1,2 @@
+The purpose of this exercise is to copy a file while also copying 
+the timestamp set on the original file.

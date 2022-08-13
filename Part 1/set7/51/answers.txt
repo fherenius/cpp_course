@@ -1,0 +1,9 @@
+The output is not as desired since istr has it's EOF bit set after the first
+extraction. This can be seen by checking with:
+
+if (istr.eof())
+  std::cout << "EOF bit set";
+
+This issue is easily solved by writing:
+
+istr.clear();

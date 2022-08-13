@@ -1,0 +1,5 @@
+Summary:
+
+Design a small template meta program that displays a constant size_t as its
+binary value.
+

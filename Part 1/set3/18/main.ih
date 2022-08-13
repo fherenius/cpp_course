@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+struct ReturnValues
+{
+    bool ok;
+    size_t nr;
+    string value;
+};
+
+// combines the input into the struct ReturnValues
+ReturnValues combine(int argc, char **argv);
+
+// checks if args are valid using combine then prints them or a usage msg
+// uses a struct ReturnValues
+bool structCall(int argc, char **argv);
+
+// checks if args are valid using combine then prints them or a usage msg
+// uses structured binding
+void boundCall(int argc, char **argv);
+
+// displays usage message
+void usageMsg();
+
+// displays requested argument and its number
+void argMsg(size_t nr, string value);

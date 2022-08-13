@@ -1,0 +1,4 @@
+Summary:
+
+Implement all the needed members of insertable from exercise 25.
+

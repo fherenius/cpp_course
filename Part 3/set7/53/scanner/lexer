@@ -1,0 +1,28 @@
+%x line
+%x linenr
+
+%%
+
+^\#\>   { begin(StartCondition_::linenr); }
+<linenr>{ 
+  [[:digit:]]+  { d_offset += (std::stoul(matched()) - lineNr()) - 1; }
+  \n            { begin(StartCondition_::INITIAL); }
+}
+
+//%nowarn
+^      { std::cout << (lineNr() + d_offset) << ": ";
+         begin(StartCondition_::line); }
+
+<line> {
+  [[:punct:]]{1}              { ++d_chars;  // Match single char
+                                echo(); }
+  [[:alpha:]][[:alnum:]]*     { ++d_idents; // Match identifiers
+                                echo(); } 
+  [[:digit:]]+                { ++d_ints;   // Match int numbers
+                                echo(); } 
+  [[:digit:]]+\.[[:digit:]]+  { ++d_reals;  // Match real numbers
+                                echo(); } 
+    .    { echo(); }                        // Match any other char
+    \n   { std::cout << '\n';               // At newline return to main scanner
+          begin(StartCondition_::INITIAL); }
+}

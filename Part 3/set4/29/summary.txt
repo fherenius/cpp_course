@@ -1,0 +1,5 @@
+Summary:
+
+Make a definition of the overloaded addition operator without
+using std::plus.
+

@@ -1,0 +1,7 @@
+Summary:
+
+Learn to combine variadic template arguments.
+
+Create a class merge that combines either two Chars definition into a new
+Chars definition or a Chars and OneChar.
+

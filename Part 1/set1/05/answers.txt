@@ -1,0 +1,27 @@
+
+ Explain in your own words the meaning of redirection and piping. 
+ In particular, explain what happens in
+
+
+    program < in > out
+        
+
+and
+
+
+    program | less
+        
+
+
+1. program < in > out.
+You can redirect the standard I/O streams with redirection, 
+the standard input is redirected by "<" and standard output by ">".
+In this program the stdin is redirected from the file "in" into program
+and the stdout of the program is redirected into the file "out". 
+The pre-existing contents (if any) of "out" are overwritten.
+
+2. program | less
+in piping, the output of one program will directly be used as the input 
+of another program. In this case the output of "less", 
+which run first, will be directly used as the input for "program" as soon 
+as "less" is finished.

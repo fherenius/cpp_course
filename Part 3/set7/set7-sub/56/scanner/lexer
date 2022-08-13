@@ -1,0 +1,23 @@
+%x pathname
+%x include
+
+%%
+
+#include        { begin(StartCondition_::include); } // Enter include scanner 
+
+<<EOF>>         { popStream();                        // Pop stream when done
+                  begin(StartCondition_::pathname); } // Return to state we that
+                                                      // the scanner started in
+                                                      // after file included
+
+<include> {
+  \"            { begin(StartCondition_::pathname); } // Process included file 
+  \n            { echo(); begin(StartCondition_::INITIAL); } // Back to main 
+  .             { } // Eat any comments on include line
+}
+
+<pathname> {
+  \"                { begin(StartCondition_::include); } // Switch to include
+  .+/\"             { begin(StartCondition_::INITIAL); // Process included
+                      pushStream(matched()); }         // file using stack
+}

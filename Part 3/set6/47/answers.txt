@@ -1,0 +1,18 @@
+JB: 1
+JB: But see below.
+
+The goal of this exercise is to explain the working of the FSA coroutine from
+the Annotations.
+
+We used the reference implementation of the Annotations and commented it to show
+understanding of how a coroutine works. The classes Awaiter, Start and 
+PromiseBase were commented, the other classes are mostly identical to Start.
+
+JB: You do a nice job of explaining in the classes how coroutines are used to
+    make this work. That kind of was the exercise. I feel I'm nitpicking a bit,
+    but a maintainable version of this code would also at least briefly document
+    *what* the program/class intends to accomplish - e.g. mention that your are
+    implementing a FSA, and that several awaiters implement a state each.
+    Since the fix is easy and I wish to save myself some extra work, full pts
+    here already, but please do fix in other exercise(s) where comment is
+    explicitely mentioned.

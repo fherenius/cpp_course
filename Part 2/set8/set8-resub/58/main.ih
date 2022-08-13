@@ -1,0 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <future>
+
+using namespace std;
+
+void quicksort(vector<int>::iterator begin, vector<int>::iterator end);

@@ -1,0 +1,10 @@
+Purpose of this exercise: learn to use promotion with generic algorithms and 
+predefined function objects when manipulating basic data types.
+Use sort to sort the command line's arguments twice, once ascending, once 
+descending without storing them in a vector.
+
+Use only features from the STL. Your program should call sort and copy twice. 
+These calls and newline insertions into cout should be the only statements 
+in main.
+
+The program defines no variables (main's parameters are OK).

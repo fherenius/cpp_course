@@ -1,0 +1,25 @@
+Purpose of this exercise: learn to use generic algorithms
+Write a main function filling a vector with random numbers (e.g., using the 
+function random(3)). The random numbers are then, separated by single space 
+characters) displayed to the standard output stream. End the line once all 
+numbers have been displayed. Finally, the vector's index containing the first 
+random value exceeding a specified value `lookup' is shown. If found, display
+
+    The first value exceeding ... is at index ...
+        
+otherwise display
+
+    No random value exceeeds ...
+        
+(replace the dots by the appropriate values. For this final part an if 
+statement may be used. Localize!
+
+The program expects three arguments: the number of random values 
+to generate, the maximum random value to generate (store this value + 1 in 
+endRandom, so random() % endRandom satisfies the requirement, and lookup's 
+value.
+
+Only expression statements (as well as lambda expressions) may be used.
+
+Submit the source containing main: main.ih is not required, include the 
+required headers in main's source file.

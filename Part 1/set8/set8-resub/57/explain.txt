@@ -1,0 +1,6 @@
+Exercise 57
+A leak free version of the strings class
+is created using two assignment operators, copy and move construction 
+and a swap member.
+
+Fix: fast swap implemented as well as used during copy construction

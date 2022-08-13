@@ -1,0 +1,9 @@
+explain.txt
+strings/strings.h
+strings/strings.ih
+
+strings/operatorAssign.cc
+strings/operatorAssignMove.cc
+strings/strings5.cc
+strings/strings6.cc
+strings/swap.cc

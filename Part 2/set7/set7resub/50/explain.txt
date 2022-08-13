@@ -1,0 +1,4 @@
+Purpose of this exercise: learn to use the chrono/clock facilities
+
+Write a short program converting between several timeformats, and
+several computations with chrono types.

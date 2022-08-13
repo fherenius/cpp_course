@@ -1,0 +1,23 @@
+Exercise 58.
+Basic exercise
+Purpose of the exercise: implement a simple value class. 
+
+Design a class Numbers, which may store multiple ints. 
+The number of ints it can store is set at object construction time, 
+and afterwards doesn't change except at assignment, which the class 
+should support. It should also support copying. And it should be move-aware.
+The class should offer a public function at, so the ints themselves can be 
+inspected and/or modified by the user of the class. Passing an out-of-range 
+index to at should result in an error message on screen. But no exception has 
+to be thrown, as exceptions are NC yet.
+
+The class should offer a function write that writes its values to an ostream, 
+as well as a function length, returning the number of stored ints.
+
+In addition, Numbers should offer at least two more constructors:
+
+    - One that takes 'count' and 'value', where 'count' is the number of ints 
+	held, and 'value' is the value to which all of them are initialized.
+
+    - One that takes just 'count', and allocates that number of ints, but 
+	leaves them completely uninitialized. 

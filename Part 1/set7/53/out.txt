@@ -1,0 +1,6 @@
+std display:   "          12.04"
+left aligned:  "12.04          "
+right aligned: "          12.04"
+3 digits:      "           12.0"
+4-digit frac:  "        12.0400"
+std display:   "          12.04"

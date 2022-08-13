@@ -1,0 +1,35 @@
+1. Why doesn't this work
+
+main.cc: In function ‘bool promptGet(std::istream&, std::string&)’:
+main.cc:10:19: error: cannot convert ‘std::basic_istream<char>’ to ‘bool’ in return
+   10 |     return getline(in, str);
+      |            ~~~~~~~^~~~~~~~~
+      |                   |
+      |                   std::basic_istream<char>
+
+This doesn't work because promptGet's return value is bool but it returns
+a istream  &
+
+2.
+
+bool promptGet(istream &in, string &str)
+{
+    cout << "Enter a line or ^D\n"; // ^D signals end-of-input
+
+    return bool(getline(in, str));
+}
+
+The return value now is converted to bool so the return type matches
+promptGet
+
+3. 
+
+istream &promptGet(istream &in, string &str)
+{
+    cout << "Enter a line or ^D\n"; // ^D signals end-of-input
+
+    return getline(in, str);
+}
+
+the promptGet's return value is  now istream &, so the return type matches
+promptGet

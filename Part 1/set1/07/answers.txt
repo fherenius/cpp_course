@@ -1,0 +1,7 @@
+The correct output is a readable word (using 0 (number) for o (letter). Explain why the first three characters of the displayed value are what they are. 
+
+The first characters are C, 0 and F.
+There are 40 bits set. For hexidecimal 4 bits are used.
+The last for bits are 1100, which evaluates to C.
+The next four bits are 0000, which evaluates to 0.
+The next four bits are 1111, which evaluates to F.

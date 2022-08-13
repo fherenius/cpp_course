@@ -1,0 +1,5 @@
+The purpose of this exercise is to use static data in template classes.
+In this case, the same static data should be available for all templates.
+
+We choose to implement the static data in a base class and inherit this class
+in the template class.

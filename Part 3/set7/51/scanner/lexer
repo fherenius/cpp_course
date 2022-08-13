@@ -1,0 +1,52 @@
+%x multilinecomment
+%x comment
+%x string
+%%
+
+// Matches multiline comment with space
+[[:blank:]+]\/\*  { d_startLine = lineNr();
+                    d_precedingSpace = true;
+                    begin(StartCondition_::multilinecomment); }
+
+// Matches multiline comment
+[[:blank:]]*\/\*  { d_startLine = lineNr();
+                    begin(StartCondition_::multilinecomment); }
+
+
+// Matches end of line comment
+[[:blank:]]*#  {  std::cout << std::endl; 
+                  begin(StartCondition_::comment); } // Enter miniscanner
+
+// Matches string
+\"             { echo();
+                 begin(StartCondition_::string); } // Enter miniscanner
+
+[[:blank:]*]$ // Removes trailing whitespace
+^[[:blank:]*] // Removes starting whitespace
+
+<comment> {
+  .     { } // Remove any single character
+  \n    { begin(StartCondition_::INITIAL); } // At new line, return to main
+}
+
+<multilinecomment> {    // Deal with multiline comment being on a single line
+  \*\/              { if (lineNr() > d_startLine)
+                        std::cout << std::endl;
+                      d_precedingSpace = false; // Reset data member 
+                      begin(StartCondition_::INITIAL); }
+
+                        // Deal with preceding & following blanks on one line
+  \*\/[[:blank:]+]  { if (lineNr() > d_startLine) 
+                        std::cout << std::endl;
+                      else if (d_precedingSpace) 
+                        std::cout << " "; // Print otherwise lost blank
+                      d_precedingSpace = false; // Reset to false
+                      begin(StartCondition_::INITIAL);}
+  \n    {  }
+  .     {  }
+}
+
+<string> {
+  \"  { echo(); begin(StartCondition_::INITIAL); }
+  .   { echo(); }
+}

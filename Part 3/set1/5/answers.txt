@@ -1,0 +1,2 @@
+The purpose of this exercise is to use a function template inside of a class
+and make a generic index operator.

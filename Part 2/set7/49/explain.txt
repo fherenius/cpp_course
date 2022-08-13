@@ -1,0 +1,15 @@
+asic exercise
+Purpose of this exercise: learn to perform time conversions
+
+To convert coarse time specifications (e.g., hours{13} to a fine-grained time 
+specifications (e.g., to minutes) is easy: show how you can do this conversion 
+using available chrono facilities.
+
+The opposite is slightly more complex: to convert, e.g., seconds to hours you 
+need to divide by a conversion factor. Of course, the conversion factor should 
+not use magic numbers, but should use conversion factors that are obtained using
+ available chrono facilities. Using a time unit like hours{1} is OK, however.
+
+Your program should expect two (positive integral) numbers: the first number 
+represents hours, which must be converted to minutes; the second number 
+represents seconds, which must be converted to minutes. 

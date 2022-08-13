@@ -1,0 +1,3 @@
+#ifndef __UNIQUE_H__
+#include "counter.h"
+#endif // __UNIQUE_H__

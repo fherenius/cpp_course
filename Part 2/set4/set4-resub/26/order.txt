@@ -1,0 +1,12 @@
+exercise.txt
+main.cc
+
+base/base.h
+base/base.ih 
+base/destructor.cc
+base/vHello.cc
+
+derived/derived.h
+derived/derived.ih
+derived/derivedFactory.cc
+derived/vHello.cc

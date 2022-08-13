@@ -1,0 +1,2 @@
+The purpose of this exercise is to create learn to create a wrapper function 
+that circumvents the new[] limitation of only using the default constructor.

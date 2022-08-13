@@ -1,0 +1,18 @@
+Basic exercise
+Purpose of this exercise (letters): learn to determine sets of characters
+
+(Extended) ascii characters fit in bytes (having 8 bits). 
+In the header file ctype.h characters can be inspected for all 
+kinds of characteristics (e.g., using functions like isspace to test 
+whether a character is a space character) (cf. isspace(3)).
+Not assuming anything about the ordering or position of 
+letters in the ascii character set, fill a std::string with all 
+letters found in the ascii character set. 
+
+The program described by all_letters.cc iterates over the range
+{0, 256} with the upper end being the number of encodings
+contained by the extended ascii table. 
+Using casting (size_t to char), and the checks 
+isalpha() (checks if char is alphabetic) from ctype.h 
+all letters are detected and appended to a string.
+Finally, the string is printed (and redirected into out.txt)

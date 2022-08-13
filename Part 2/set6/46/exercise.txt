@@ -1,0 +1,5 @@
+Purpose of this exercise: learn to think a bit 'out of the box'
+Construct a program defining a vector<unsigned> having 10 elements. 
+Use iota to fill these elements with, subsequently, the values
+
+0, 2, 4, 6, 8, 10, 12, 14, 16, 18.

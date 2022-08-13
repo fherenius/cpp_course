@@ -1,0 +1,6 @@
+Summary:
+
+Design a struct template with one size_t parameter.
+Its operations being performed at compile time. It gives traits specifics of
+numbers.
+

@@ -1,0 +1,12 @@
+#include "newlineonexit/newlineonexit.h"
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <thread>
+#include <chrono>
+
+void printPrimes(std::vector<size_t> &primes);
+void dots(std::stop_token stop);
+std::vector<size_t> calcPrimes(size_t const nrPrimes);
+bool prime(std::vector<size_t> &primes, size_t &next);
+std::vector<size_t> sieve(size_t const amount);

@@ -1,0 +1,4 @@
+Purpose: create a program producing a multiplication table
+
+table.cc takes an integer from the command line and
+prints a multiplication table for that integer.

@@ -1,0 +1,28 @@
+Basic exercise
+Purpose of this exercise: learn to apply basic multi-threading
+
+One way to find prime numbers is offered by the sieve of Eratosthenes. 
+In this exercise we'll use this sieve to execute a time intensive process 
+while another thread tells us that the program's busy.
+
+Our program expects one argument: the number of primes we want 
+the program to compute.
+
+Eratosthenes' sieve can be implemented like this (a basic,
+ rather inefficient implementation, but we don't care: 
+ the exercise is about threads, not about finding primes):
+
+    Start with a vector of size_t values containing 2: 
+	our first prime number, and use size_t next, initialized to 3, 
+	as the next value to inspect.
+    While the size of the vector is smaller than the number of primes 
+	to find perform these steps:
+     if next is not divisible by the values in the primes-vector,
+	 then add next to the primes-vector
+     increment next 
+
+While the program is busy finding primes, a separate thread displays dots 
+(one dot every second) to cerr until prime-finding has finished. 
+Then display all primes to cout, followed by the prime-finding starting time, 
+the prime-finding ending time, and the number of seconds it took the program 
+to find the primes

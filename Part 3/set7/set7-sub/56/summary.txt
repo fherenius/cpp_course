@@ -1,0 +1,8 @@
+The goal of this exercise was to deal with #include files, much like how the
+C++ language deals with these. Files to be included are copied directly into
+the file being processed.
+
+The above was realised using the available pushStream and popStream members
+to switch input and process included files in the correct order, also
+when nested. These members already provide the correct error messages when a
+file does not exist.

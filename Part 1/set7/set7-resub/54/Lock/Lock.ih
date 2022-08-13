@@ -1,0 +1,10 @@
+#include "Lock.h"
+
+#include <fcntl.h>  // open(2)
+#include <fstream>  // fstream object
+#include <iostream> // output stuff
+#include <libgen.h>
+#include <sys/file.h> //flock
+#include <unistd.h>   // close(2) & access(2)
+
+using namespace std;

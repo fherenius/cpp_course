@@ -1,0 +1,43 @@
+//JB: 1
+%class-name Parser
+%filenames Parser
+%scanner ../scanner/Scanner.h
+
+%token INT STRING DOUBLE QUIT
+
+%polymorphic INT: int; STRING: std::string; DOUBLE: double;
+
+%%
+
+lines:
+    lines '\n' line
+|
+    line    // Added line rule to prevent syntax error on first line
+;
+
+line:
+    INT
+    {
+        $1 = stoi(d_scanner.matched());
+        showInt($1);
+    }
+|
+    STRING
+    {
+        $1 = d_scanner.matched();
+        showString($1);
+    }
+|
+    DOUBLE
+    {
+        $1 = stod(d_scanner.matched());
+        showDouble($1);
+    }
+|
+    QUIT
+    {
+        quit();
+    }
+|
+    '\n'
+;

@@ -1,0 +1,11 @@
+explain.txt
+main.cc
+main.ih
+calcprimes.cc
+dots.cc
+newlineonexit/newlineonexit.h
+newlineonexit/newlineonexit.ih
+newlineonexit/newlineonexitDestr.cc
+primes.cc
+printprimes.cc
+sieve.cc

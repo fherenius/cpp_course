@@ -1,0 +1,2 @@
+The purpose of this exercise is to learn how to use template functions in
+classes and to create a generic function.

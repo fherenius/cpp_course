@@ -1,0 +1,41 @@
+Design an interactive program (just one main function) in which you repeatedly
+request user input. The input consists of numbers, one number per line. To 
+end the program enter a single q.
+
+Part of the code of the program handling the normal input is:
+
+
+    while (true)
+    {
+        cout << "please enter a number: ";
+        getline(cin, line);
+        if (line == "q") 
+        {
+            cout << "leaving...\n";
+            return 0;
+        }
+        cout << stod(line) << '\n';
+    }
+        
+and the string line is defined at the top of main's body.
+However, invalid input may be entered, resulting in the following interaction:
+
+
+    please enter a number: ok
+    `ok' is not a number
+    please enter a number: 12
+    12
+    please enter a number: -13
+    -13
+    please enter a number: 1e4
+    10000
+    please enter a number: oops
+    `oops' is not a number
+    please enter a number: -1.5
+    -1.5
+    please enter a number: q
+    leaving...
+        
+Clearly, 'ok' is not a number and neither is 'oops'.
+Without modifying the provided code snippet in any way, submit main's 
+implementation resulting in interactions like the one shown above.

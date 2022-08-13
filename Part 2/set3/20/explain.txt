@@ -1,0 +1,12 @@
+Basic exercise
+Purpose of this exercise: learn a proper application of inheritance
+
+Assume you frequently use the class std::string. Although there is a constructor 
+string(size_t count, char ch) initializing a string with count chars there 
+isn't one like string(size_t count, string const &str), 
+initializing your string with count times str's content.
+
+Solve that problem as follows: create a class that offers all members of 
+std::string, and whose objects can be used as argument in all cases where
+a string parameter is used; be it a value, reference, rvalue reference or
+pointer to a string. 

@@ -1,0 +1,28 @@
+Purpose of this exercise: learn to solve an apparently unsolvable problem
+
+1) Why did we add that comment? Why doesn't the statement do its job?
+
+Looking at the docs, NoEntry does not meet the CopyInsertable requirements of 
+push_back, because the copy constructor of CopyInsertable is private.
+The vector object is NOT a friend of NoEntry. It 
+cannot call the copy constructor. The compiler therefore throws an error.
+
+2) Without modifying anything in the class NoEntry, but merely concentrating on
+PrivilegedOne: what must be done to allow objects of this class to store 
+NoEntry objects in its d_noEntry vector? (submit your modifications of
+PrvilegedOne's class and its constructor; the only line that you should have
+to change in the constructor is the line having the // oops comment).
+
+We changed the definition of d_noEntry: to
+
+std::vector<std::unique_ptr<NoEntry>> d_noEntry;
+
+We can then use the copy constructor in the class of PrivilegedOne to obtain
+a unique_ptr to a NoEntry object. This is possible because PrivilegedOne is
+a friend of NoEntry. The push_back line now looks like:
+
+d_noEntry.push_back(std::unique_ptr<NoEntry>(new NoEntry(next)));
+
+
+
+

@@ -1,0 +1,5 @@
+Summary:
+
+Implement a basic coroutine that takes a unsigned long as argument and
+on every subsequent call returns the next integer value.
+

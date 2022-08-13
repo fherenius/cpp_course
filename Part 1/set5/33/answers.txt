@@ -1,0 +1,43 @@
+1) what differences exist between pointer variables and arrays:
+
+A pointer variable stores the location of another variable as their value.
+An array is a series of elements stored in a contigous memory location.
+The name of the array stores the location of the 0'th index of the array.
+An array is a contigous block in memory, while a pointer refers to one spot.
+
+2) what differences exist between pointer variables and reference variables
+
+A pointer variable stores the location of another variable as their value,
+while a reference variable is an alias for an existing variable.
+
+When a reference variable is initialized, it cannot be changed to point to
+another variable, while for a pointer variable this is possible.
+
+A reference variable cannot point to a NULL value, pointer variables can.
+
+3a) how element [3][2] is reached for the variable `int array[20][30]'
+
+see 3a in the next email
+
+The size of an array[idx] element is 30 integers. To acces element[3],
+we jump 3 * int[30] in memory to get that address. then we the size of 2
+integers to that location to acces element [3][2].
+
+3b) how element [3][2] is reached for the variable `int *pointer[20]'
+
+see 3b in the next email
+
+the variable pointer is a pointer which points to an array of size 20.
+We assume that pointer[3] is also initialized to point to an array of size 20.
+pointer[3] will jump 3 * sizeof(*int) to return a pointer to this array of
+size 20. then we access the idx 2 by jumping 2 integers from this memory
+location to access pointer[3][2].
+
+4) what is meant by 'pointer arithmetic'
+
+pointer arithmetic is doing calculations with addresses of variables
+to obtain another variable address in memory. Such as increasing/decreasing its 
+value, + n/- n, shift to the address n places ahead/before the original pointer.
+
+
+

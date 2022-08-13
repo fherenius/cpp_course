@@ -1,0 +1,8 @@
+#include "handler/handler.h"
+#include <iostream>
+#include <thread>
+#include <fstream>
+
+using namespace std;
+
+void callShift(std::ostream &out, std::string const &text);

@@ -1,0 +1,21 @@
+Exercise 44.
+Basic exercise
+Purpose: learn to use double pointers.
+
+The class Strings clearly uses a highly inefficent algorithm for adding another
+ string, as it has to copy its full data structure for every newly added string.
+
+Can we do better? Yes. First of all, a double pointer (note that we're not 
+referring to a pointer to a double here) only needs to extend the array of
+pointers. Existing strings, once allocated, can be reused. Second, the array
+of pointers doesn't have to be copied at every new string. The class could 
+use a doubling rule: each time the array is full, allocate enough room to 
+store twice the number of strings.
+
+When doubling, the additional pointers don't have to be initialized. 
+We can postpone initialization until it's actually required. It's probably a 
+good idea to make the initial capacity equal to 1, allowing you to implement 
+a simple doubling algorithm. Alternatively, you could extend in fixed block 
+sizes (e.g., allowing the object to store 100 additional strings). 
+
+The Strings class was modified to accomodate double pointers to a string.

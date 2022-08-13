@@ -1,0 +1,7 @@
+Purpose of this exercise: learn to handle pointers the smart way.
+
+Same (!) exercise as the previous one, but now we keep the requirement that 
+the strings themselves are reached via pointers. 
+In addition to the implementations requested in the previous exercise, 
+also provide the implementations of the operator[] members 
+(make sure to handle COW correctly). 

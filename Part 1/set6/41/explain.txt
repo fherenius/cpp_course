@@ -1,0 +1,21 @@
+Exercise 41.
+Basic exercise
+Purpose of this exercise: 
+Learn to improve an inefficient memory allocation scheme.
+
+The previously developed class CharCount has a serious disadvantage: 
+at each new Char the full data structure must be copied. Moreover, a switch is 
+used to determine which action to perform at the point where that's already
+ known.
+
+In this exercise modify CharCount so that
+
+    Starting from an initial capacity 8 for storing Char objects the capacity 
+    is doubled whenever the current capacity is exhausted.
+
+    Use an array of pointers to members that is used to immediately determine
+     which function to call once its required action has been determined. 
+
+The class CharCount must also offer a member capacity returning its current
+ capacity. This is used in main to report the CharCount object's capacity 
+ just before the program ends. 

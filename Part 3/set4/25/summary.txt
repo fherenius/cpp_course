@@ -1,0 +1,8 @@
+Summary:
+
+Create a struct Iterable that provides the insertor operator for any
+container storing any type.
+It also needs to provide a constructor taking one value of said type next to
+copy and move constructors.
+Submit only the interface but not the implementation.
+

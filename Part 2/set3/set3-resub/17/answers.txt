@@ -1,0 +1,33 @@
+Assume a class Derived is publicly inheriting from an existing class Base. 
+
+1) What members can be accessed by users of a Derived object?
+
+The users of a Derived object can access all public member of Derived as
+well as all public members of Base
+
+2) What members can be accessed by Derived's designer?\
+
+Derived's designer can access all members of Derived as well as all public
+and protected members of Base.
+
+3) What changes if Derived uses protected inheritance?
+
+Then all public and protected members of Base become protected members in 
+Derived. Therefore users of derived are not able to access Bases members.
+Classes that are derived from the Derived class can access all the base class
+public and protected members, because they have become protected members
+in derived.
+
+However, if the using keyword is used in the public interface of derived, 
+then that member and all its overloaded versions will be available to the user.
+
+4) What changes if Derived uses private inheritance?
+
+Then all public and protected members of Base become private members in Derived
+users of derived are therefore not able to access any of the Base classes 
+members, and classes derived from Derived also cannot access any of the Base
+classes members. Unless a member is made publicly available with the using 
+keyword.
+
+Users can still access public members from Derived.
+

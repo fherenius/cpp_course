@@ -1,0 +1,12 @@
+#include "storage/storage.h"
+#include "consumer/consumer.h"
+#include <iostream>
+#include <thread>
+#include <fstream>
+
+void fillObjectVector(std::vector<Consumer> &vec, Storage &store,
+                      int amount, char **filenames);
+void startThreads(std::vector<std::thread> &thrdVec, 
+                  std::vector<Consumer> &consumerVec);
+void joinThreads(std::vector<std::thread> &threadVec);
+void printSizes(std::vector<Consumer> &consumerVec);

@@ -1,0 +1,3 @@
+Give attention to integer types when using non-canonical loops.
+Write a program called 'complement', that shows the bits of a (signed) 
+integer, and their values

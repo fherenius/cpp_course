@@ -1,0 +1,20 @@
+Summary:
+
+Create a scanner that scans specific words in a minimal match manner.
+The words are "household" and "houseboat", counting both "house" and the
+trailing word as separate
+
+Q. Why does flexc++ not need minimal match scanning?
+
+A. flexc++ offers the trailing option. "a/b" matches "a" only when followed
+   by "b" but leaves "b" to be matched later.
+   Trough this one can create minimal matches where needed.
+
+   Not having minimal matches allows rules to be a subset of another rule
+   without them being matched if the superset should be matched instead.
+   Most formal languages use whitespaces as separators giving them some
+   semantic meaning. This removes the need of minimal matches in most cases
+   the other cases are then caught by the use of the trailing operator as
+   mentioned above.
+
+

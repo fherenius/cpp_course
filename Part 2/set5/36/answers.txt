@@ -1,0 +1,46 @@
+Store all unique words that were found in a file 
+(see an earlier exericse in this set) in a vector.
+
+1) What are the vector's size and capacity?
+
+The output when we run the program  with 3 words is:
+
+size: 3
+capacity: 3
+
+2) Next add one additional word to the vector. 
+What are the vector's new size and capacity?
+
+the new size and capacity are:
+
+size: 4
+capacity: 6
+
+3) Shed its excess capacity, and show that you succeeded in doing that by 
+displaying the size and capacity once again.
+
+we do this with the 
+    vector<string>(vecWords).swap(vecWords);
+statement.
+The updated size and capacity are:
+
+size: 4
+capacity: 4
+
+Now define a class containing a vector<string> data member. Store all unique
+words of a file in that data member. Then also add one additional word to the
+data member.
+
+Then by only using members that are standard available/expected of classes,
+show how you can shed excess capacity of your class's vector data member. 
+Note that shrink_to_fit will probably work, but that's the snag: it's a 
+request the implementor may or may not fully grant.
+
+4) Explain why shrink_to_fit shouldn't be used.
+According to Annotations 12.4.2: 
+
+optionally reduces the amount of memory allocated by a vector to its current 
+size. The implementor is free to ignore or otherwise optimize this request. 
+
+In other words shrink_to_fit() is no guarantee that the capacity gets reduced
+There are other alternatives that do guarantee this such as swap.

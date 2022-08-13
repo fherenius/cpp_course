@@ -1,0 +1,5 @@
+In this exercise the goal is to create a scanner that can change it's line 
+count.
+
+With some simple arithmatic an offset is calculated, this offset is added to
+the lineNr when printing to always show the correct line number.

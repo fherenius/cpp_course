@@ -1,0 +1,36 @@
+The purpose of this exercise is to understand the inheritance of constructors
+in derived classes.
+
+> Show what happens if you call each of Derived's constructors.
+> Explain your finding.
+
+Only the default constructor of base is called, everytime a Derived
+object is created.
+
+> and then change Derived's constructors so that each calls the matching
+> Base constructor.
+
+We make use of the using keyword:
+    using Base::Base
+
+> In real life you would never do this, but what would you have to do to ensure
+> that Derived's copy constructor calls Base's move constructor?
+> And how would you realize that Derived's move constructor calls
+> Base's copy constructor?
+
+We can explicitly call the Base copy/move constructor from the initialization
+list of the Derived move constructor. If the object is not anonymized, the
+copy constructor is called. If we anonymise, the move constructor is called.
+
+The code would look as follows;
+
+Derived::Derived(Derived const &other)
+:
+    Base(tmp) // Copy constructor
+{}
+
+or:
+Derived::Derived(Derived const &other)
+:
+    Base( std::move(tmp) ) // Move constructor
+{}

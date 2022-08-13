@@ -1,0 +1,11 @@
+Basic exercise
+Purpose of this exercise: learn to use the chrono/clock facilities
+
+Using the now function (available in chrono, display the current
+ local and universal coordinated time (use gmtime for that).
+
+Your program should also receive an argument: an integral number to 
+which an s, m, h (for seconds, minutes, hours) is appended. 
+Add (or subtract) the specified time (from now), and display the resulting time.
+
+Use put_time to display the resulting times. 

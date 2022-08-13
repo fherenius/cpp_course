@@ -1,0 +1,8 @@
+Define two overloaded functions sum returning the sum of the values of
+their arguments. One function computes the sum of integral values, 
+the other function computes the sum of double values 
+(not necessarily two values).
+
+Illustrate your functions in main: if none of its command-line arguments
+contain a dot, then call the function summing integral values, 
+otherwise call the function summing double values

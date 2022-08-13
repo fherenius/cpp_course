@@ -1,0 +1,14 @@
+Summary:
+
+Create a struct template that offers basic implementation of required
+coroutine State (promise_type) functions.
+Show the implementation in the handler class from the previous exercise (44).
+
+
+Q. Explain what you would do if a default implementation cannot be used.
+
+A. Since the PromiseBase is never used in functions or anywhere for that matter
+   outside of the derived class, we can override the functions that need a
+   special implementation just by declaring them in the derived class.
+   These new functions will then be called in the context of the derived class.
+

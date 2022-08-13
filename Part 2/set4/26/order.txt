@@ -1,0 +1,6 @@
+exercise.txt
+main.cc
+base.h
+derived.h
+derived.ih
+derivedFactory.cc

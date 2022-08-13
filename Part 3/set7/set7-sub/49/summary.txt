@@ -1,0 +1,5 @@
+The purpose of this exercise was to create a simple scanner that recognises 
+embedded patterns. 
+
+We use a simple lexer that recognises strings and standard algorithms to 
+have our vector sorted for us.

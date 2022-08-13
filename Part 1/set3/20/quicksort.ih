@@ -1,0 +1,10 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void quicksort(string *arr, size_t low, size_t high);
+
+size_t partition(string *arr, size_t low, size_t high);
+
+string tolower(string str);

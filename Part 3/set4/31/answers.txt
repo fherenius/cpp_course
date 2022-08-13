@@ -1,0 +1,43 @@
+//JB: 1
+
+Summary:
+
+Given the following statement,
+
+    v1 + v2 + v3 + v4;
+
+answer the following questions given that vi's are vectors of ints and an
+Expression template has been defined to add them together.
+
+Q. What is the result of the statement given above?
+
+A. The result is a temporary Expression object.
+   That holds Another Expression object and the vector v4.
+   The hierarchy can be drawn as follows.
+
+
+   v1    v2
+   |     |
+   +--+--+
+      |
+     Expr1      v3
+      |         |
+      +----+----+
+           |
+          Expr2      v3
+           |         |
+           +----+----+
+                |
+               Expr3
+    
+    Expr3 is then the resulting temporary Expression object.
+
+
+Q. How many index computations will be performed?
+
+//JB: >:-)=)>~
+A. Trick question as the statement will perform no index computations.
+   The index computations are only performed by the Expression object once
+   it is interpreted as a vector<int>. Since the statement never does that it
+   will not perform the computations.
+

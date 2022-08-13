@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+enum Mode
+{
+    CHAR_COUNT = 0,
+    WORD_COUNT = 1,
+    LINE_COUNT = 2,
+    NONE = 3
+};
+
+Mode getMode(int argc, char **argv);
+
+size_t countChars();
+
+size_t countWords();
+
+size_t countLines();

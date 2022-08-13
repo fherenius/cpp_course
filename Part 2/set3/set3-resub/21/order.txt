@@ -1,0 +1,7 @@
+answers.txt
+
+main.cc
+insert.cc
+string1.cc
+string.h
+string.ih

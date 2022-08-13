@@ -1,0 +1,6 @@
+Summary:
+
+Design a template member function that converts the string stored at a given
+index to a basic type (or string without conversion).
+It returns the given type or a const-reference in the case of a string.
+

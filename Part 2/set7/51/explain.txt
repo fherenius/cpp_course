@@ -1,0 +1,35 @@
+Basic exercise
+Purpose of this exercise: learn to define a thread with objects 
+that aren't functors.
+
+Assume we have the following class:
+
+
+    class Handler
+    {
+        public:
+            void shift(std::ostream &out, string const &text);
+    };
+        
+
+Its shift member writes text as lines to out, each time shifting the first
+ letter to the last position, until all of text's letters have appeared once 
+ in text's front position. So, with the word mouse we get
+
+
+    mouse
+    ousem
+    usemo
+    semou
+    emous
+        
+
+As Handler does not have a void operator() member, a Handler object by itself 
+cannot be passed to a thread constructor.
+
+Design a program that expects the name of an output file and a text.
+ Open the output file, and run a thread calling the Handler's shift member.
+
+Do this in two different ways (sequentially): first by defining a Handler
+ object in main and then passing it to a thread, and second, by running a 
+ thread that itself defines a Handler object. 

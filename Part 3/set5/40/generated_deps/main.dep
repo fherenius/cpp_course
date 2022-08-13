@@ -1,0 +1,15 @@
+main.o: main.cc Storage/storage.h Storage/operators.f Storage/storage.h \
+ Storage/../RndIterator/rnditerator.ch \
+ Storage/../RndIterator/dereferenceable.ch \
+ Storage/../RndIterator/incrementable.ch \
+ Storage/../RndIterator/decrementable.ch \
+ Storage/../RndIterator/stepable.ch Storage/storage.f
+Storage/storage.h:
+Storage/operators.f:
+Storage/storage.h:
+Storage/../RndIterator/rnditerator.ch:
+Storage/../RndIterator/dereferenceable.ch:
+Storage/../RndIterator/incrementable.ch:
+Storage/../RndIterator/decrementable.ch:
+Storage/../RndIterator/stepable.ch:
+Storage/storage.f:

@@ -1,0 +1,73 @@
+What are the variants of new/delete? 
+
+1) new / delete, 
+new is used to allocate memory and returns a pointer to the new object.
+delete returns the memory allocated by new to the system.
+
+Person *person = new Person;
+person->height();
+
+delete person;
+
+2) new[] /delete[],
+
+Person persons[] = new[10] Person;
+persons[5]->name();
+
+delete[] persons;
+
+In this case, new[] allocates a contigous bock of  memory for 10 person objects
+and returns a pointer to the first Person object in this block;
+delete[] returns the memory allocated by new[] to the system.
+
+3) operator new / operator delete
+
+Person *person = static_cast<Person *>(operator new(sizeOf(Person)));
+
+operator delete(person); // not initialized, no member function call possible
+
+In this case operator new allocates raw memory the size of a Person object.
+It does not call the default constructor of person like new and new[] do.
+So the object is uninitialized.
+
+4) operator new[] / operator delete[]
+
+size_t nObjects = 10;
+Person *persons = 
+        static_cast<Person *>(operator new[](sizeOf(Person) * nObjects)));
+
+In this case operator new allocates raw memory the size of nObjects Person 
+objects. Again, it does not call the default constructor of person like new and
+new[] do. So the objects are uninitialized.
+
+
+operator delete[](persons);
+
+5) placement new
+
+#include <memory>
+                                // operator new
+Person *personMemory = static_cast<Person *>(operator new(sizeOf(Person)));
+
+new person Person{};            // placement new
+
+personMemory->height();
+personMemory->~Person();
+operator delete(personMemory);
+
+In this case operator placement new is used. operator new initializes a person
+object into the raw memory *personMemory. Then the placement new statement
+initializes person so its member functions can be called. We need to
+explicitly call the destructor of Person to return memory allocated by Person,
+and operator delete returns the raw memory.
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+ARITHOP   \+|-|\*|\/|%                             
+ASSIGNOP  =|\+=|-+|\*=|\/=|%=|\|=|\^=|\>\>=|\<\<=  
+LOGICOP   &&|\|\||!                                
+RELATOP   \<|\<=|\>|\>=|==|!=                      
+BITOP     &|\||\<\<|\>\>|~|\^                      
+UNARYOP   \+\+\-\-                                 
+
+%%
+[ \t]+                              // skip white space chars.
+[[:alpha:]]{1}                      return CHAR;       // Single char match
+[[:alpha:]][[:alnum:]]*             return IDENTIFIER; // Match word
+[[:digit:]]+                        return INT;        // Match int
+[[:digit:]]+\.[[:digit:]]+          return REAL;       // Matches real. Longest
+                                                       // match is chosen 
+{ARITHOP}                           |                  // Arithmatic op
+{ASSIGNOP}                          |                  // Assignment ops
+{LOGICOP}                           |                  // Logical operators
+{RELATOP}                           |                  // Relational ops 
+{BITOP}                             |                  // Bit operators
+{UNARYOP}                           return OPERATOR;   // Unary operator
+\".*\"+                             return STRING;     // Match strings
+\n                                  echo();            // New line
+.                      ; // Do nothing for undefined input

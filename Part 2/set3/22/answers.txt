@@ -1,0 +1,8 @@
+1) show how you can call Derived::hello. 
+Provide a clear explanation why this is bad practice.
+
+In main.cc we provide a function caller which expects a Base object
+and calls the hello method from the Derived class by casting the pointer
+to a pointer of type Derived. This is bad practice because this only works
+of the object received by caller is actually an instance of a Derived object,
+otherwise the program may exhibit undefined behaviour.

@@ -1,0 +1,22 @@
+1) Show how you can destroy the already allocated objects once you've caught
+the exception and explain why the solution is (so) simple.
+
+we created a class MaxFour that has a static variable s_nMaxFour that keeps
+track of the number of MaxFour objects that are created. when more than 4 are
+created an error is thrown. When the main function is run, the following output
+is produced:
+
+1 MaxFour objects created
+2 MaxFour objects created
+3 MaxFour objects created
+4 MaxFour objects created
+Destructor called
+Destructor called
+Destructor called
+Destructor called
+max. number of objects reached
+
+After 4 created objects the constructor throws an error. We then don't have to
+any of the created MaxFour objects ourself. This is because all objects 
+succesfully constructed within a try block before executing the throw statement 
+are destroyed.

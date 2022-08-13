@@ -1,0 +1,24 @@
+Purpose of this exercise: Show that the compiler doesn't make files bigger
+                          than necessary.
+
+The files being compiled as followed: 
+g++ -Wall -Werror -std=c++20 -c main.cc source1.cc source2.cc
+
+Then being linked into an output file as follows:
+g++ -o out1 main.o source1.o
+g++ -o out2 main.o source2.o 
+
+Gives the following output:
+
+out1
+Location of function in main: 0x5647e50bf237
+Adress of template pointer: 0x5647e50bf237
+
+out2
+Location of function in main: 0x564e5b7d4237
+Adress of template pointer: 0x564e5b7d4237
+
+As seen above, both functions in the union in fun() and in main() refer to the
+same template function. Meaning the compiler recognised justReturn() indicates
+the same function and the compiler makes sure it doesn't occur in memory more
+than is strictly necessary.

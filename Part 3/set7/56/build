@@ -1,0 +1,29 @@
+#!/bin/bash
+
+case "$1" in
+    ("")
+        echo "
+usage: 'build prog' to build the program, 'build clean' to cleanup
+"
+        exit 1
+    ;;
+    (prog)
+        cd scanner
+        flexc++ lexer || exit 1
+        cd ..
+        
+        g++ --std=c++20 -Wall -olexer main.cc scanner/*.cc || exit 1
+        echo "
+ready; run the program as 'lexer in.1'
+"
+    ;;
+    (clean)
+        cd scanner
+        rm -f ../lexer lex.cc scannerbase.h
+        echo "
+done
+"   
+        ;;
+esac
+    
+exit 1

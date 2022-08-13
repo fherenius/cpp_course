@@ -1,0 +1,10 @@
+#include <iostream>
+
+using namespace std;
+
+extern size_t nTotal;
+extern size_t nRequired;
+
+void combis(size_t idx, bool bits[]);
+void print(bool const bits[]);
+void combisForSize(size_t idx, size_t req, bool bits[]);

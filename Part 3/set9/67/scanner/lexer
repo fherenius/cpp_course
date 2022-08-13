@@ -1,0 +1,17 @@
+
+WHITESPACE      [\t\r\ ]
+INTEGER         [0-9]+
+DOUBLE          {INTEGER}"."{INTEGER}
+STRING          [^[:blank:]\n]+
+
+%%
+
+"quit"          return QUIT;
+{INTEGER}       return INT;
+{DOUBLE}        return DOUBLE;
+{STRING}        return STRING;
+
+
+{WHITESPACE}    // Ignore
+
+.|'\n'          return matched()[0];

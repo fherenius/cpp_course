@@ -1,0 +1,6 @@
+bytes  | File name
+-------|----------------
+71     | hello.cc
+2.544  | hello.o
+6.128  | hello
+2.697  | iostream

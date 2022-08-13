@@ -1,0 +1,52 @@
+Basic exercise
+Purpose of this exercise: learn to design a simple producer/consumer program.
+
+When a queue is used in a multi-threaded program a mutex is required to
+ synchronize its access. Although it's possible to surround calls to queue 
+ members with a mutex lock, this makes the programmer responsible for the
+  synchronization. It would be nice if the mutex could be embedded in the 
+  queue's members themselves.
+
+This isn't simple: see the Annotations for a description of why the pop member 
+can't return the queue's front-element.
+
+Consider a class Storage: it contains a queue, into which strings can be pushed
+and popped by two different threads.
+
+The most important element to consider are push and pop and front. 
+While designing your class Storage you may have to alter the signatures of 
+one or more of the members of your class, as compared to std::queue. By itself,
+ Storage should define a std::queue data member, so don't implement the queueing 
+ part yourself. If you modify a signature clearly explain why you decided 
+ to do so.
+
+One thread is provided by the main function itself: it reads lines from cin 
+(lines you enter), and pushes the lines into the queue.
+
+A separate thread obtains the lines from the queue and writes the lines
+ to a file. The name of the file is passed to the thread.
+
+The separate thread uses polling to find out whether something is available:
+ it sleeps for a second, then checks whether a line is available, and if so,
+  removes it from the queue.
+
+Complications to solve:
+
+    Simultaneously writing and reading the queue must be prevented;
+
+    Consider also what may happen if one thread adds element to the queue, 
+	and another thread removes elements from the queue. To the latter the
+	 queue may seem empty, but that might be because the former hasn't yet 
+	 entered elements into the queue. So an empty queue may mean: 
+	 we're done adding elements or as yet we haven't been able to push
+	  new elements into the queue. How would you distinguish 
+	  between these two cases?
+
+    The separate thread must be informed when the main program has no more 
+	lines to insert into the queue. Merely ending main is not the right 
+	thing to do (why not?). A better solution is to provide the class Storage 
+	with a member empty(), returning true once the queue is empty and a data 
+	member d_finished is set to true by a member finished.
+
+    Both the main program and the thread must have access to Storage, 
+	but the Storage object should be defined in main. 

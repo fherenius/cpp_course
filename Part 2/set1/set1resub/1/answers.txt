@@ -1,0 +1,2 @@
+The purpose of this exercise is to add index, insertion, and comparison
+operators to a class.

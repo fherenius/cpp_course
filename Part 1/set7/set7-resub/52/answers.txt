@@ -1,0 +1,2 @@
+The purpose of this exercise is to learn how to define a manipulator and
+convert time formats into something that can be inserted into an output stream.

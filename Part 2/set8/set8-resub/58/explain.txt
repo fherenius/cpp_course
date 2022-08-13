@@ -1,0 +1,2 @@
+The purpose of this exercise is to implement a simple multithreaded program.
+This is done by implementing a simple quicksort program in a multithreaded way.

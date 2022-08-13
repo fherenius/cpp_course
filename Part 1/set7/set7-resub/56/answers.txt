@@ -1,0 +1,5 @@
+The goal of this assignment is to make  program which 
+translates binary encoding to nucleobase encoding and vice versa.
+The translation is realized by a class named DNA data. It's mode 
+is set during contruction as well as the in/out files. The member function
+"translate" performs the translation.

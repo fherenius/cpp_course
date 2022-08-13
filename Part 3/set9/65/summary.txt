@@ -1,0 +1,2 @@
+The goal of this exercise was to extend an existing grammar
+with additional arithmetic operators.

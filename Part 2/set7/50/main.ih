@@ -1,0 +1,7 @@
+#include <chrono>
+#include <iostream>
+#include <iomanip>
+
+using namespace std::chrono;
+
+std::chrono::seconds inputToTime(std::string input);

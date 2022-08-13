@@ -1,0 +1,8 @@
+hello.o  --> Object file (machine code) that the compiler generates. 
+                 This file might contain references to external sources (cout, for example).
+				 These references need to be linked against other object files (or libraries).
+                 By linking these references, the executable file is created.
+                 If multiple object files are compiled, then these multiple object files will be linked and produce a single executable file.
+				 
+hello   --> An executable is a file that the computer can directly execute.
+               This file contains the memory addresses references for the external references it contains.

@@ -1,0 +1,7 @@
+#include "person/person.h"
+#include <iostream>
+
+using namespace std;
+
+void readPersons(Person persons[], size_t size);
+void writePersons(Person persons[], size_t size);

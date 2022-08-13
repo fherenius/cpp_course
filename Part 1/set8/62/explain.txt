@@ -1,0 +1,34 @@
+Exercise 62.
+Advanced exercise
+Purpose of this exercise: learn to design an unrestricted union.
+
+Define an unrestricted union Data. The union defines three fields:
+
+    u_double: a pointer to an array of 10 doubles.
+    a std::string u_word
+    a size_t u_value. 
+
+The union's fields should not be directly accessible, instead accessors for 
+these fields should be provided.
+
+The union supports public
+
+    field-specific constructors (the constructor initializing u_double receives 
+	a pointer to dynamically allocated doubles which may be grabbed 
+	by the constructor),
+    a destroy member receiving the currently active field-type as argument,
+    copy and move constructors providing second arguments specifying the type
+	of the provided Data object,
+    members copy and move receiving as arguments the currently active field, 
+	the Data object to copy or move, and the field used by that object,
+    a swap member receiving similar arguments as copy. 
+
+Several private support members are declared:
+
+    field-specific destroy members (e.g., destroyWord),
+    field-specific copyXXX members (e.g., copyWords) receiving the Data 
+	object to copy/move.
+    a member copyValue, also receiving a Data object. This member is used 
+	when assigning the u_value fields from the provided Data object.
+    combination specific swapXY members where X is the type of the 
+	current union and Y is the type of the union to swap its field with. 

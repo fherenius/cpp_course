@@ -1,0 +1,56 @@
+
+#include <tuple>
+
+template <size_t number>
+struct Nr
+{
+    enum { value = number };
+};
+
+    // The generic case that is used to unpack the tuple into the parameter
+    // pack. Later it can be used to create a new tuple with the whole pack
+template <typename Tuple, typename Idx,  typename ...Params>
+struct ExtendTuple
+{
+    static auto extend(Tuple const &tuple, Params &&...params);
+};
+
+    // Generic ExtendTuple function
+template <typename Tuple, typename Idx, typename ...Params>
+auto ExtendTuple<Tuple, Idx, Params...>::
+    extend(Tuple const &tuple, Params &&...params)
+{
+    enum { idx = Idx::value - 1 };
+    using LastType = 
+        typename std::tuple_element<idx, Tuple>::type;
+
+    LastType tmp = std::get<idx>(tuple);
+
+
+        // Move is the only way it works as it wants to bind to an rvalue
+        // reference. Therefor we first need to store it in a tmp var
+        // to be able to move. Something must be wrong as this feels
+        // like a suboptimal solution
+    return
+        ExtendTuple<Tuple, Nr<idx>, LastType, Params...>::
+        extend(tuple, std::move(tmp), std::forward<Params>(params)...);
+}
+
+
+    // The specialization called when the whole tuple is unpacked.
+    // It returns a new tuple created through the parameter pack.
+template <typename Tuple, typename ...Params>
+struct ExtendTuple<Tuple, Nr<0>, Params...>
+{
+    static auto extend(Tuple const &tuple, Params &&...params);
+};
+
+    // Specialized ExtendTuple function
+template <typename Tuple, typename ...Params>
+auto ExtendTuple<Tuple, Nr<0>, Params...>::
+    extend(Tuple const &tuple, Params &&...params)
+{
+    return std::tuple<Params...>{ std::forward<Params>(params)... };
+}
+
+

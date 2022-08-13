@@ -1,0 +1,26 @@
+1) when used as shown the implementation harbors a serious defect.
+
+When running the program with valgrind for the input file main.cc, we find that
+there are memory leaks in the program. The Strings class does not implement
+a destructor. We added a destructor to the class in destructor.cc
+which solves the problem.
+
+
+2) In String's interface two at members are declared. Why?
+If the Strings object is declared const, functions using it must, promise
+not to modify it. Therefore an additional constant at() function is specified
+which promises to not alter the Strings object. 
+
+3) Which one is used in the abovementioned main function?
+
+the non-const version, as the Strings object in main is not declared const
+
+
+4)Provide a small example showing a situation where the other at member is used
+
+Strings const strings{ cin };
+
+for (size_t idx = 0, end = strings.size(); idx != end; ++idx)
+    cout << "line " << idx + 1 << ": " << strings.at(idx) << '\n';
+
+The Strings object is declared const so the const version of at() is called.

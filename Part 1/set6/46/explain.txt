@@ -1,0 +1,22 @@
+Exercise 46.
+Advanced exercise
+Purpose: learn to use the placement new operator.
+
+The placement new operator allows
+ us to allocate blocks of (raw) memory, installing our data in it on request.
+
+
+The class uses a doubling rule: each time the array is full, enough 
+room is allocated to store twice the number of strings. This time, raw memory 
+to allocate the strings in.
+
+When doubling, the room for extra strings doesn't have to be initialized. 
+We can postpone initialization until it's actually required. The
+initial capacity is set equal to 1, allowing for a a simple doubling algorithm.
+
+The class Strings is modified so that the placement new operator is used. 
+All the previous class Strings' facilities (including those of the class
+using double pointers, so capacity, reserve and resize should still
+be available.
+
+The destructor and destroy functions are modified accordingly. 

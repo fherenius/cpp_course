@@ -1,0 +1,29 @@
+1) Explain why exit calls should be avoided in C++ programs,
+and why exceptions are a better alternative.
+
+exit should be avoided because it immediately terminates the program and
+therefore destructors of local objects aren't activated. This results in 
+memory leaks.
+
+Exceptions form a better alternative because:
+
+- exit() terminates the program, whereas with exception you can still recover
+- destructors arent activated with exit() resulting in memory leaks. which
+isn't the case for exceptions.
+- With exceptions we can break the programs normal control flow without
+having cascading return statements
+
+In our program when we run throwException the output is
+
+Constructor called
+Exception
+Destructor called
+
+whereas with hardExit the output is
+
+Constructor called
+
+and we lose 8 bytes of memory. This is because with exit() the destructors
+are not activated
+
+

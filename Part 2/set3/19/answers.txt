@@ -1,0 +1,29 @@
+1) Explain why, when Derived is derived from Base the Base class 
+constructed before the Derived class
+
+Because a derived class inherits its funcitonality from its base class, a
+derived class is built on top of its base class object. Therefore  the base
+class must be initialized before the derived class members can be initialized
+
+2) Explain why the Base class is destroyed only after the Derived class has 
+been destroyed.
+
+A derived object is built on top of its base class object. The derived object
+may use derived functionality from the base class the destroy itself. Therefore 
+the derived class object must be destroyed before the base class object.
+
+3) Provide a small example, and explain (in words, not by running the program)
+that the example would completely fail if the ordering would be reversed.
+
+suppose the example in main.cc. We have a constructor of Derived that relies
+on Base being initialized as it calls one of it's methods that initializes
+Base's data. Base needs to be constructed for Derived to use this funcitonality,
+Otherwise the program would fail, as this funcitonality does not exist yet.
+
+4. When using placement new, or in the context of unrestricted unions, 
+explicit destructor calls are encountered. Explain why code using such explicit 
+destructor calls for objects of a class Derived
+
+The destructor of the derived class implicitly calls the Base class's
+destructor. Therefore we don't have to do that ourself.
+

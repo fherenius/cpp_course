@@ -1,0 +1,76 @@
+1) Draw Multi's class hierarchy
+
+Basic           Basic
+  |               |
+  |               |
+Deriv1          Deriv2
+  |               |
+  |               |
+  |               | 
+  ------ Multi ---
+
+2) add the following statement to Multi's constructor:
+cout << static_cast<Basic *>(this) << '\n';
+        
+Explain the compiler's error message.
+
+the Multi class inherits from Basic two times, via Deriv1 and via Deriv2. The 
+compiler doesn't know to which instance of Basic to cast to because its
+ambiguous.
+
+3) Change the statement so that there is no compilation error
+
+std::cout << static_cast<Basic *>(static_cast<Deriv1 *>(this)) << '\n';
+std::cout << static_cast<Basic *>(static_cast<Deriv2 *>(this)) << '\n';
+
+Either we first cast it to a Deriv1 *, or Deriv2 *. these classes only inherits
+from one Basic class. So when we cast again to Basic *, The compiler knows 
+which class to use.
+
+4) Keep the statement as-is, and show the required modifications to allow the 
+compiler to compile the statement without errors.
+
+We change the definition of Deriv1 and Deriv2 to inherit from virtual Basic.
+
+class Deriv1: virtual public Basic
+class Deriv2: virtual public Basic
+
+5) how do you realize that the 2nd Basic constructor 
+(i.e., the one expecting an int) is the only Basic constructor that's called?
+
+We call it explitly from the multi constructor:
+
+inline Multi::Multi()
+:
+    Basic(10)
+{
+    std::cout << static_cast<Basic*>(static_cast<Deriv1 *>(this)) << '\n';
+}
+
+6) also make sure that Deriv1's constructor calls Base's constructor 
+expecting an int
+
+we call Basic's int constructor explictly from Deriv1's default constructor
+
+inline Deriv1::Deriv1()
+:
+    Basic(10)      // call int constructor
+{}
+
+7) What do you have to change to ensure that only Base's default constructor
+is called when constructing a Multi object?
+
+This can be done by omitting calling Deriv1() and Deriv2() in the constructor of
+Multi. The constructor of Multi then looks like
+
+inline Multi::Multi()
+:
+    Basic()
+{
+    std::cout << static_cast<Basic*>(static_cast<Deriv1 *>(this)) << '\n';
+}
+
+
+
+
+

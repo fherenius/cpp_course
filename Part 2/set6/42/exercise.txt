@@ -1,0 +1,22 @@
+In this exercise we start from any ordered set of data, like the following 
+vector of size_t values:
+
+    vector<size_t> vs{ 1, 2, 2, 3, 4, 4, 4, 5 };
+Write a function expecting a const reference to such a vector, returning the 
+number of `multiples' found in a vector of size_t values (which may be empty). 
+Multiples are defined as elements that occur repeatedly, not counting their 
+first occurrence. In the shown vector they are the 2nd '2', and the last two 
+'4' values, so there are three multiples. The function is called multiples and
+ can be used like so:
+
+
+    int main()
+    {
+        vector<size_t> vs{ 1, 2, 2, 3, 4, 4, 4, 5 };
+        cout << multiples(vs) << " multiples were found\n";
+    }
+        
+(there's no need to refine the inserted text if there's only one multiple.)
+Hint: the function's implementation only needs a few lines of code, using a
+generic algorithm that's perfectly suited for this task. Avoid complex 
+solutions.

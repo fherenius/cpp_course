@@ -1,0 +1,15 @@
+The purpose of this exercise is to learn to use Semaphores to synchronize
+multiple threads.
+
+Current implementation works, the Storage class was already given in week7
+but I've still added it into order.txt because I added a member function.
+
+Given only 2 worker threads are started in total, I tracked them by
+hand. In case more worker threads were necessary, a vector of objects,
+a vector of threads, and some functions to start all threads and join all
+threads would have been used. In this case, I thought it would be a bit 
+overkill.
+
+JB: See my comments in the code. Perhaps I'm on to something.
+FPJ: Thanks, they helped a lot. It works for me now! :)
+     Output given in next listing

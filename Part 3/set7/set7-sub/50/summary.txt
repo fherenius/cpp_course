@@ -1,0 +1,4 @@
+The purpose of this exercise was to create a simple tokeniser. 
+
+Using a switch-case, the token and their type are printed to std::out.
+The enum values are defined in Scanner.h
